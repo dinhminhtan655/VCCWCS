@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvBasketName"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:text="Số lượng giao:"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/btnTruCCDC"
+            android:textStyle="bold"
+            android:layout_weight="0.2"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtUpdateCcdc"
+            android:hint="Sl CCDC giao"
+            android:textAlignment="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.6"
+            android:inputType="numberDecimal"
+            tools:ignore="Suspicious0dp" />
+
+        <Button
+            android:id="@+id/btnCongCCDC"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textStyle="bold"
+            android:layout_weight="0.2"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:text="Số lượng nhận:"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textStyle="bold"
+            android:layout_weight="0.2"
+            android:id="@+id/btnTruCCDC1"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtUpdateCcdcReceived"
+            android:textAlignment="center"
+            android:inputType="numberDecimal"
+            android:hint="Sl CCDC nhận"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.6"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textStyle="bold"
+            android:layout_weight="0.2"
+            android:id="@+id/btnCongCCDC1"/>
+
+    </LinearLayout>
+
+
+
+<!--    <Button-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/btnUpdateCCDC"-->
+<!--        android:text="Cập nhật"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:background="#2196F3"/>-->
+
+</LinearLayout>

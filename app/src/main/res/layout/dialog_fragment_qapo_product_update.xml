@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="java.util.Locale"/>
+
+        <variable
+            name="product"
+            type="com.wcs.vcc.main.vo.QaPoProduct"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text='@{product.productNumber + " - " +product.productName}'
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:text="2603044  - Toi thai duong"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text='@{"Qty: " + product.qty + "        " + "QtyQA: "}'
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:text="Qty: 0        QtyQA: "/>
+
+        <EditText
+            android:id="@+id/edit_qty_qa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="3"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:nextFocusForward="@+id/edit_damage_vh"
+            android:selectAllOnFocus="true"
+            android:text="@{String.valueOf(product.qtyQA)}"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/textView2"
+            app:layout_constraintLeft_toRightOf="@id/textView2"
+            tools:ignore="LabelFor"
+            tools:text="123"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="4"
+            android:text="Hư NT"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+
+        <EditText
+            android:id="@+id/edit_damage_vh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:minEms="3"
+            android:nextFocusForward="@+id/edit_damage_h"
+            android:textColor="@color/black"
+            android:selectAllOnFocus="true"
+            android:text="@{String.valueOf(product.qtyQADamageVH)}"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
+            app:layout_constraintLeft_toRightOf="@+id/textView4"
+            tools:text="0.0"/>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Hư nặng"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@+id/textView4"
+            app:layout_constraintRight_toLeftOf="@+id/edit_damage_vh"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"/>
+
+        <EditText
+            android:id="@+id/edit_damage_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:minEms="3"
+            android:nextFocusForward="@+id/edit_damage_l"
+            android:selectAllOnFocus="true"
+            android:text="@{String.valueOf(product.qtyQADamageH)}"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
+            app:layout_constraintLeft_toRightOf="@+id/textView5"
+            android:enabled="false"
+            tools:text="0"/>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Hư nhẹ"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@+id/textView4"
+            app:layout_constraintRight_toLeftOf="@+id/edit_damage_vh"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"/>
+
+        <EditText
+            android:id="@+id/edit_damage_l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:minEms="3"
+            android:selectAllOnFocus="true"
+            android:text="@{String.valueOf(product.qtyQADamageL)}"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
+            app:layout_constraintLeft_toRightOf="@+id/textView7"
+            android:enabled="false"
+            tools:text="0"/>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ems="3"
+            android:text="% lỗi"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
+            app:layout_constraintLeft_toRightOf="@+id/edit_damage_vh"/>
+
+        <EditText
+            android:id="@+id/edit_damage_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:minEms="4"
+            android:selectAllOnFocus="true"
+            android:text='@{String.format(Locale.getDefault(), "%.3f", product.poDetailDamageError)}'
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            tools:text="0.00"/>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="% trừ"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@+id/textView9"
+            app:layout_constraintRight_toRightOf="@id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"/>
+
+        <EditText
+            android:id="@+id/edit_po_detail_damage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:minEms="4"
+            android:selectAllOnFocus="true"
+            android:text='@{String.format(Locale.getDefault(), "%.3f", product.poDetailDamage)}'
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
+            app:layout_constraintLeft_toRightOf="@+id/textView6"
+            android:enabled="false"
+            tools:text="0.00"/>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Remark"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@+id/textView7"
+            app:layout_constraintRight_toLeftOf="@+id/edit_damage_l"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            />
+
+        <TextView
+            android:id="@+id/txt_remark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/choice_remark"
+            android:text="@{product.remark}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@+id/textView10"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView10"
+            tools:text="The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog"/>
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            android:text="Ghi chú"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@+id/textView10"
+            app:layout_constraintRight_toRightOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/txt_remark"/>
+
+        <EditText
+            android:id="@+id/edit_other_remark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:paddingTop="0dp"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@id/textView11"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textView11"
+            tools:text="The quick brown fox jumps over the lazy dog"/>
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36dp"
+            android:text="Hủy"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_update"
+            app:layout_constraintLeft_toRightOf="@+id/btn_update"
+            app:layout_constraintTop_toTopOf="@+id/btn_update"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Cập nhật"
+            app:layout_constraintRight_toLeftOf="@+id/btn_cancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_other_remark" />
+
+        <Button
+            android:id="@+id/btnCam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/camera"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toEndOf="@+id/btn_cancel"
+            app:layout_constraintTop_toTopOf="@+id/btn_cancel"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <GridView
+            android:id="@+id/grid_image"
+            android:layout_width="375dp"
+            android:layout_height="219dp"
+            android:horizontalSpacing="5dp"
+            android:numColumns="2"
+            android:verticalSpacing="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_cancel"
+            app:layout_constraintVertical_bias="0.112" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{product.PurchasingOrderProductNumber}"
+            tools:layout_editor_absoluteX="356dp"
+            tools:layout_editor_absoluteY="1dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

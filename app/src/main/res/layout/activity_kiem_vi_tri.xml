@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/activity_kiem_vi_tri">
+
+    <data>
+
+        <variable
+            name="totalCarton"
+            type="int" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_target_scan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/barcode"
+                android:paddingEnd="0dp"
+                android:paddingStart="10dp"
+                android:textCursorDrawable="@null">
+
+                <requestFocus/>
+            </EditText>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#444"/>
+
+            <TextView
+                android:id="@+id/tv_prev_barcode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingEnd="0dp"
+                android:paddingStart="10dp"
+                android:textSize="17sp"
+                tools:text="DO0000123456"/>
+
+            <ImageView
+                android:id="@+id/ivCameraScan"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/selector_gray_white"
+                android:scaleType="center"
+                android:src="@drawable/ic_action_image_camera_holo_light"
+                tools:ignore="ContentDescription"/>
+        </LinearLayout>
+
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ListView
+                android:id="@+id/lv_kiem_vi_tri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/shadow" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvTotalCarton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/outline_top"
+            android:gravity="end"
+            android:padding="5dp"
+            android:text="@{String.valueOf(totalCarton)}"
+            android:textColor="@color/black" />
+    </LinearLayout>
+</layout>

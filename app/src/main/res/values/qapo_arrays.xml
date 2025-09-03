@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="remark">
+        <item>Cấn dập, thâm</item>
+        <item>Trầy hàng</item>
+        <item>Mẫu mã xấu</item>
+        <item>Sâu bệnh</item>
+        <item>Không đúng kích thước</item>
+        <item>Có mùi hôi</item>
+        <item>Bị thối</item>
+        <item>Cháy lạnh</item>
+        <item>Bị nám vỏ</item>
+        <item>Nấm mốc</item>
+        <item>Sai quy cách đóng gói</item>
+        <item>Xì chân không, trả về</item>
+        <item>Mắt đỏ</item>
+        <item>Bể bụng</item>
+        <item>Tróc vẩy</item>
+        <item>Mềm thịt</item>
+        <item>Mang tái</item>
+        <item>Không tươi</item>
+        <item>Còn tạp chất</item>
+        <item>Đã qua cấp đông</item>
+        <item>Ươn, thối</item>
+    </string-array>
+    <string-array name="qa">
+        <item></item>
+        <item>Thuyền</item>
+        <item>Khoa</item>
+        <item>Dương</item>
+        <item>Hoàng</item>
+        <item>Hạnh</item>
+        <item>Dũng</item>
+        <item>Tuấn</item>
+        <item>Long</item>
+    </string-array>
+</resources>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="cartonNumber"
+            type="int" />
+
+        <variable
+            name="cartonId"
+            type="int" />
+
+        <variable
+            name="orderQuantity"
+            type="int" />
+
+        <variable
+            name="quantity"
+            type="int" />
+
+        <variable
+            name="orderNetWeight"
+            type="String" />
+
+        <variable
+            name="netWeight"
+            type="String" />
+
+        <variable
+            name="isCompleted"
+            type="boolean" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text='@{"ID thùng: " + cartonNumber}'
+                tools:text="cartonNumber" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text='@{"Carton ID: " + cartonId}'
+                tools:text="cartonId" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="Completed"
+                android:textStyle="bold"
+                android:visibility='@{isCompleted ? View.VISIBLE : View.INVISIBLE}' />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/rdGroupTypeProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/raFixWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fix-Weight"></RadioButton>
+
+            <EditText
+                android:id="@+id/edQtyInner"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textAlignment="center" />
+            <RadioButton
+                android:id="@+id/raRandoWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Random-Weight"></RadioButton>
+        </RadioGroup>
+        <LinearLayout
+            android:id="@+id/header_scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/outline_bottom"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_target_scan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/barcode"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:textCursorDrawable="@null">
+
+                <requestFocus />
+            </EditText>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#444" />
+
+            <TextView
+                android:id="@+id/tv_prev_barcode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:textSize="17sp"
+                tools:text="DO0000123456" />
+
+            <ImageView
+                android:id="@+id/ivCameraScan"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/selector_gray_white"
+                android:scaleType="center"
+                android:src="@drawable/ic_action_image_camera_holo_light"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#000" />
+
+        <include
+            layout="@layout/header_scan_package"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/outline_bottom">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_pick_pack_ship_pack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_pick_pack_ship_pack" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/shadow" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="42dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.025"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center_vertical"
+                android:text="" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center"
+                android:text="Sum"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center"
+                android:text="@{String.valueOf(orderQuantity)}"
+                android:textColor="#A00"
+                android:textStyle="bold"
+                tools:text="Số gói đặt" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.075"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center"
+                android:text="@{orderNetWeight}"
+                android:textColor="#00F"
+                android:textStyle="bold"
+                tools:text="Số kí đặt" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center"
+                android:text="@{String.valueOf(quantity)}"
+                android:textColor="#A00"
+                android:textStyle="bold"
+                tools:text="Số gói" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center"
+                android:text="@{netWeight}"
+                android:textColor="#00F"
+                android:textStyle="bold"
+                tools:text="Số kí" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onNha"
+                android:text="Nhả" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onXong"
+                android:text="Xong" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

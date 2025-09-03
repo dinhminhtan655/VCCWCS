@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/header_gsk_scan_filter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outline_bottom"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioGroup
+            android:id="@+id/rg_gsk_scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/rb_gsk_scan_filter_me"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="0"
+                android:text="@string/all"/>
+
+            <RadioButton
+                android:id="@+id/rb_gsk_scan_filter_me"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:tag="1"
+                android:layout_height="wrap_content"
+                android:text="@string/me"/>
+
+            <RadioButton
+                android:tag="2"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unfinished"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/header_gsk_scan_scan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outline_bottom"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/header_gsk_scan_filter">
+
+        <EditText
+            android:id="@+id/et_target_scan"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/barcode"
+            android:paddingEnd="0dp"
+            android:paddingStart="10dp"
+            android:textCursorDrawable="@null">
+
+            <requestFocus/>
+        </EditText>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#444"/>
+
+        <TextView
+            android:id="@+id/tv_prev_barcode"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingEnd="0dp"
+            android:paddingStart="10dp"
+            tools:text="PI0000213012301"/>
+
+        <ImageView
+            android:id="@+id/ivCameraScan"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/selector_gray_white"
+            android:scaleType="center"
+            android:src="@drawable/ic_action_image_camera_holo_light"
+            tools:ignore="ContentDescription"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lv_gsk_scan"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/footer_gsk_scan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_gsk_scan_scan"/>
+
+    <LinearLayout
+        android:id="@+id/footer_gsk_scan"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:background="@drawable/outline_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Số phiếu:"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/tv_gsk_scan_order_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="200"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:text="Thùng: "
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/tv_gsk_scan_carton_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="123123123"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

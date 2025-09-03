@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_white"
+        android:title="@string/search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_menu"
+        android:title="@string/kho"
+        app:showAsAction="always">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/vin_all"
+                    android:checked="true"
+                    android:title="ALL" />
+                <item
+                    android:id="@+id/vin_hcm"
+                    android:title="HCM" />
+                <item
+                    android:id="@+id/vin_tinh"
+                    android:title="Tỉnh" />
+.
+            </group>
+        </menu>
+    </item>
+
+</menu>

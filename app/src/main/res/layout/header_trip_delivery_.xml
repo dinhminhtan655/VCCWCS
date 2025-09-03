@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="42dp">
+
+
+    <TextView
+        android:id="@+id/tv_header_trip_delivery_trip_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:text="TripID" />
+
+    <TextView
+        android:id="@+id/tv_header_trip_delivery_route_description"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:text="Tuyến" />
+
+
+    <TextView
+        android:id="@+id/tv_header_trip_delivery_qty_order"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:text="Số Điểm" />
+
+    <TextView
+        android:id="@+id/tv_header_trip_delivery_status"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:text="Trạng Thái" />
+</LinearLayout>
+

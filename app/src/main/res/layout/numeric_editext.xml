@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:inputType="number"
+    android:digits="0123456789"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

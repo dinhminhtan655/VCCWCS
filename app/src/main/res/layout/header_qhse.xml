@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/colorDCDEE3"
+              android:orientation="horizontal"
+              android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/tv_qhse_new_qhse"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_weight="1"
+        android:background="@drawable/selector_gray_white"
+        android:clickable="true"
+        android:drawablePadding="16dp"
+        android:drawableStart="@drawable/vanho72"
+        android:gravity="center_vertical"
+        android:paddingEnd="0dp"
+        android:paddingStart="16dp"
+        android:text="@string/tao_moi"/>
+
+    <ImageView
+        android:id="@+id/iv_qhse_image_camera"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/selector_gray_white"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_action_image_camera_holo_light"
+        android:visibility="gone"
+        tools:ignore="ContentDescription"
+        tools:visibility="visible"/>
+</LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:text="Tên Cửa hàng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/black"
+        android:padding="@dimen/all_margin_5dp"
+        android:background="@drawable/border_black_color_label"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="Pallet"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+            android:textColor="@color/black"
+            android:padding="@dimen/all_margin_5dp"
+            android:background="@drawable/border_black_color_label"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+
+        <TextView
+            android:text="Khay"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+            android:textColor="@color/black"
+            android:padding="@dimen/all_margin_5dp"
+            android:background="@drawable/border_black_color_label"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+
+        <TextView
+            android:text="Vỉ"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+            android:textColor="@color/black"
+            android:padding="@dimen/all_margin_5dp"
+            android:background="@drawable/border_black_color_label"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

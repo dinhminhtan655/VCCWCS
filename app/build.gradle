@@ -1,0 +1,187 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.wcs.vcc"
+        minSdkVersion 26
+        targetSdkVersion 33
+        multiDexEnabled true
+        versionCode 3
+        versionName "10.1"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    dataBinding {
+        enabled true
+    }
+    buildFeatures {
+        viewBinding true
+    }
+
+    tasks.withType(JavaCompile).configureEach{
+        options.fork = true
+        options.forkOptions.jvmArgs +=[
+                '--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED',
+                '--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
+                '--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED']
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    def appName = "vcc"
+                    outputFileName = appName + ".apk"
+                }
+            }
+        }
+
+//        dataBinding {
+//            enabled true
+//        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+
+    ext {
+        archVersion = "1.1.1"
+        lifeCycleRuntimeVersion = "1.1.1"
+        supportVersion = "28.0.0"
+        daggerVersion = "2.23.2"
+        junitVersion = "4.12"
+        espressoVersion = "2.2.2"
+        retrofitVersion = "2.6.2"
+        mockwebserverVersion = "3.6.0"
+        apacheCommonsVersion = "2.5"
+        mockitoVersion = "2.7.19"
+        constraintLayoutVersion = "1.1.2"
+        glideVersion = "4.12.0"
+        timberVersion = "4.5.1"
+        room_version = "1.1.1"
+    }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/LICENSE.txt', 'META-INF/NOTICE.txt', 'META-INF/NOTICE', 'META-INF/LICENSE', 'META-INF/DEPENDENCIES']
+        }
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+
+    dependencies {
+
+        implementation fileTree(include: ['*.jar'], dir: 'libs')
+        //noinspection GradleCompatible
+        implementation 'com.android.support:appcompat-v7:28.0.0'
+        implementation files('libs/achartengine-1.2.0.jar')
+
+//        implementation "com.android.support:recyclerview-v7:$supportVersion"
+//        implementation "androidx.recyclerview:recyclerview:1.2.1"
+        implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha03'
+        implementation "com.android.support:cardview-v7:$supportVersion"
+        implementation "com.android.support:design:$supportVersion"
+        implementation "com.android.support:gridlayout-v7:$supportVersion"
+        implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+
+        implementation "android.arch.persistence.room:runtime:$archVersion"
+        implementation "android.arch.lifecycle:runtime:$lifeCycleRuntimeVersion"
+        implementation "android.arch.lifecycle:extensions:$archVersion"
+
+        //implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+        implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+        implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+        //implementation 'com.squareup.retrofit2:converter-scalars:2.6.2'
+
+        implementation "com.google.dagger:dagger:$daggerVersion"
+        //noinspection OutdatedLibrary
+        implementation "com.google.dagger:dagger-android:$daggerVersion"
+        implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+
+        implementation "com.jakewharton:butterknife:10.2.3"
+        annotationProcessor "com.jakewharton:butterknife-compiler:10.2.3"
+        implementation "com.jakewharton.timber:timber:$timberVersion"
+
+        implementation "com.github.bumptech.glide:glide:$glideVersion"
+        implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+        implementation 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+        implementation 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
+        implementation 'com.squareup.okhttp:logging-interceptor:2.7.2'
+        implementation 'com.squareup.picasso:picasso:2.5.2'
+        implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+        implementation 'com.roomorama:caldroid:3.0.1'
+        implementation 'com.google.zxing:core:3.3.3'
+        implementation 'com.google.android.gms:play-services-location:20.0.0'
+        implementation 'com.google.android.gms:play-services-places:17.0.0'
+        implementation 'com.google.firebase:firebase-crash:16.2.1'
+
+        //power preference
+        implementation "com.github.AliAsadi:PowerPreference:2.1.0"
+
+        implementation 'com.karumi:dexter:4.2.0'
+
+        implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+
+        // Room components
+        implementation "android.arch.persistence.room:runtime:$room_version"
+        annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+
+        //Search Spinner
+//        implementation 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1'
+        implementation 'com.github.miteshpithadiya:SearchableSpinner:master'
+
+        annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
+        annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+        annotationProcessor "android.arch.persistence.room:compiler:$archVersion"
+        annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+        implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
+        implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
+        implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
+
+        implementation "com.otaliastudios:zoomlayout:1.9.0"
+
+        implementation 'com.itextpdf:itextg:5.5.10'
+    }
+
+    apply plugin: 'com.google.gms.google-services'
+//    apply plugin: 'realm-android'
+    compileOptions {
+        targetCompatibility = 11
+        sourceCompatibility = 11
+    }
+    namespace 'com.wcs.wcs'
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+    }
+}
+
+dependencies {
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation files('libs/bluetoothservice.jar')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation files('libs/ZSDK_ANDROID_API.jar')
+    implementation 'com.github.barisatalay:thermalprinterhelper:v1.2.2'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.navigation:navigation-fragment:2.8.0-alpha05'
+    implementation 'androidx.navigation:navigation-ui:2.8.0-alpha05'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+}

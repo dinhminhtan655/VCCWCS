@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="PalletId" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="Label" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="Original" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="AfDP" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="Current" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="Dispatched" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="DisPlan" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="AfAct" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="CuAct" />
+</LinearLayout>

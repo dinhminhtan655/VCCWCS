@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.soki.model.ProductKg" />
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvItemSTT"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_black_color_label"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="@{item.id}"
+            tools:text="1"/>
+
+        <TextView
+            android:id="@+id/tvItemNSX"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_black_color_label"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+            android:text="@{item.ngaySX()}"
+            tools:text="25/12/2020"/>
+
+        <TextView
+            android:id="@+id/tvItemHSD"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_black_color_label"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="@{item.ngayHSD()}"
+            tools:text="25/12/2020"/>
+
+        <TextView
+            android:id="@+id/tvItemSoKg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_black_color_label"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="@{item.NetWeight}"
+            tools:text="15.000"/>
+
+        <TextView
+            android:id="@+id/tvLotRef"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_black_color_label"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="@{item.LotNumber}"
+            tools:text=""/>
+
+    </LinearLayout>
+</layout>
+

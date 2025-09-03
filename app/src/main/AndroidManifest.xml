@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.wcs.vcc">
+    <!--
+         Grants the READ_PHONE_STATE permission only on devices that run
+         Android 10 (API level 29) and lower.
+    -->
+    <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE"
+        android:maxSdkVersion="29" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.symbol.emdk.permission.EMDK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <queries>
+        <package android:name="com.symbol.emdk.emdkservice" />
+    </queries>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
+    <application
+        android:name="com.wcs.vcc.App"
+        android:allowBackup="true"
+        android:icon="@drawable/vcclogo"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/vcclogo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name="com.wcs.vcc.main.logrecords.LogRecordsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- Khai báo dịch vụ LogoutService -->
+        <service
+            android:name="com.wcs.vcc.utilities.LogoutService"
+            android:enabled="true"
+            android:exported="false" /> <!-- Khai báo BroadcastReceiver UserInteractionReceiver -->
+
+
+        <receiver
+            android:name="com.wcs.vcc.utilities.UserInteractionReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="myapp.action.EXIT" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.wcs.vcc.main.containerandtruckinfor.SignUpContInOutActivity"
+            android:exported="false"
+            android:label="@string/cycle_count_detail"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.wcs.vcc.mvvm.ui.base.activity.cyclecountdetail.CycleCountDetailActivity"
+            android:exported="false"
+            android:label="@string/cycle_count_detail"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- <activity -->
+        <!-- android:name="com.wcs.vhlapp.main.len_ha_hang.hahang.HaHangDialog" -->
+        <!-- android:exported="false"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.lib_name" -->
+        <!-- android:value="" /> -->
+        <!-- </activity> -->
+        <activity
+            android:name="com.wcs.vcc.mvvm.ui.base.activity.cyclecount.CycleCountActivity"
+            android:exported="false"
+            android:label="@string/cycle_count"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.len_ha_hang.PickPutOnlineActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.QLKhayRo.BasketRouteDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wcs.vcc.main.QLKhayRo.BasketRouteActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.wcs.vcc.main.palletcartonweighting.DispatchingPalletCartonActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity android:name="com.wcs.vcc.main.newscanmasan.itemmasan.XdocPackingScanByLotActivity" />
+        <activity android:name="com.wcs.vcc.tranningactivity.TranningActivity" />
+        <activity
+            android:name="com.wcs.vcc.main.scanhang.AutoInActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.doichieu.DoiChieuDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.doichieu.DoiChieuActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.newscanmasan.itemmasan.XdocPackingScanActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.wcs.vcc.main.newscanmasan.itemmasan.XdockingPickingListOrderActivity" />
+        <activity
+            android:name="com.wcs.vcc.main.newscanmasan.cartonnewmasan.XdocInputCartonActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.wcs.vcc.main.scanhang.ScanPalletCodeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanbhx.ABAOutboundBHX2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.soki.GhiSoKiActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.DevicesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanhang.Outbound2Activity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanhang.RegionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanhang.OutboundActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanhang.GroupScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanhang.CustomerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanvcm.ABAOutbound3FActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanvcm.ABARegion3FActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanvcm.ABAGroup3FActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scannewzealand.ABAOutboundNewzealandActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scannewzealand.ABAGroupNewzealandActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanbhx.ABASealBHXActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanbhx.ABAGroupBHXActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanvinmartv.ABAGroupVinmartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanbhx.ABAOutboundBHXActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanvinmartv.ABAOutboundVinmartActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.wcs.vcc.main.scanvinmart.XdocCartonDetailActivity" />
+        <activity android:name="com.wcs.vcc.main.scanvinmart.XdockCartonListActivity" />
+        <activity android:name="com.wcs.vcc.main.scanvinmart.XdocBookingListActivity" />
+        <activity android:name="com.wcs.vcc.production_order.ProductionOrderListActivity" />
+        <activity
+            android:name="com.wcs.vcc.main.bigcqa.bigccheckout.BigCCheckOutTripActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.bigcqa.bigccheckout.BigCTripActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.newscanmasan.itemmasan.ItemMasanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.atalay.bluetoothhelper.View.PrinterList.PrinterListActivity" />
+        <activity
+            android:name="com.wcs.vcc.main.newscanmasan.xongnhacarton.XongNhaCartonActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.wcs.vcc.main.bigcqa.QaPoProductPictureActivity" />
+        <activity
+            android:name="com.wcs.vcc.main.newscanmasan.cartonnewmasan.AddNewCarton"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.newscanmasan.cartonnewmasan.CartonScanMasanActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.newscanmasan.pickpackshippickinglist.ScanMasanActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanvinmart.GroupVinmartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.wcs.vcc.main.pickship.CheckStatusPickPackShipActivity" />
+        <activity android:name="com.wcs.vcc.main.CheckOutTrip.CartonStatusByCustomerClientActivity" />
+        <activity android:name="com.wcs.vcc.main.CheckOutTrip.CustomerClientByTripActivity" />
+        <activity android:name="com.wcs.vcc.main.CheckOutTrip.CheckOutTripListActivity" />
+        <activity
+            android:name="com.wcs.vcc.main.pickship.order.DispatchingOrderPackingActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name="com.wcs.vcc.main.scanvinmart.PackingReview2Activity" />
+        <activity
+            android:name="com.wcs.vcc.main.scanvinmart.PackingReviewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanvinmart.OutboundVinmartActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanvinmart.ViewVinmartDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.scanvinmart.ScanVinmartDetailActivity"
+            android:exported="false"
+            android:label="@string/title_activity_khach_hang"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/khach_hang" />
+        </activity>
+        <activity
+            android:name="com.wcs.vcc.main.scanvinmart.ScanVinmartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.wcs.vcc.main.packingscan.PickPackShipOrderByCustomerActivity" />
+        <activity android:name="com.wcs.vcc.main.nhapphi.DanhSachPhiActivity" />
+        <activity android:name="com.wcs.vcc.main.packingscan.save_package.SavePackageHNActivity" />
+        <activity
+            android:name="com.wcs.vcc.main.doichieu.difference_check.DifferenceCheckActivity"
+            android:label="@string/difference_check"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wcs.vcc.main.doichieu.difference_check.current.DifferenceCheckCurrentActivity"
+            android:label="Difference Check Current"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wcs.vcc.main.tripdelivery.productdetails.ProductDetailsActivity"
+            android:label="Chi Tiết Sản Phẩm"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wcs.vcc.login.LoginActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.wcs.vcc.main.MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.phieuhomnay.HomNayActivity"
+            android:exported="false"
+            android:label="@string/title_activity_hom_nay"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name="com.wcs.vcc.main.phieucuatoi.PhieuCuaToiActivity"
+            android:exported="false"
+            android:label="@string/title_activity_phieu_cua_toi"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name="com.wcs.vcc.main.detailphieu.OrderDetailActivity"
+            android:label="@string/title_activity_scan_phieu_cua_toi"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.detailphieu.chuphinh.ChupHinhActivity"
+            android:label="@string/title_activity_chup_hinh"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.detailphieu.chuphinh.ScanCameraPortrait"
+            android:label="@string/title_activity_chup_hinh"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.detailphieu.worker.WorkerActivity"
+            android:exported="false"
+            android:label="@string/title_activity_worker"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.wcs.vcc.main.phieuhomnay.KhachHangActivity"
+            android:exported="false"
+            android:label="@string/title_activity_khach_hang"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/khach_hang" />
+        </activity>
+        <activity
+            android:name="com.wcs.vcc.main.detailphieu.so_do_day.SoDoDayActivity"
+            android:label="@string/title_activity_so_do_day"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.phieuhomnay.giaoviec.GiaoViecActivity"
+            android:label="@string/title_activity_giao_viec"
+            android:screenOrientation="portrait"
+            android:theme="@style/LightDialogNoActionBar"
+            android:windowSoftInputMode="stateVisible|adjustResize|stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.detailphieu.chuphinh.UploadFileActivity"
+            android:label="@string/title_activity_upload_file"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.kiemcontainer.KiemContainerActivity"
+            android:label="@string/title_activity_kiem_container"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.kiemcontainer.detail.DetailContainerActivity"
+            android:label="@string/title_activity_detail_container"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.wcs.vcc.main.changepassword.ChangePasswordActivity"
+            android:label="@string/title_activity_change_password"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.vesinhantoan.QHSEActivity"
+            android:label="@string/title_activity_qhse"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.wcs.vcc.main.vesinhantoan.NewQHSEActivity"
+            android:label="@string/title_activity_new_qhse"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.vesinhantoan.UpdateQHSEActivity"
+            android:label="@string/title_activity_update_qhse"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.technical.assign.AssignWorkActivity"
+            android:label="@string/giao_viec"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.wcs.vcc.main.technical.assign.NewAssignWorkActivity"
+            android:label="@string/new_assign"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.technical.assign.AssignWorkCommentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.technical.assign.UpdateAssignWorkActivity"
+            android:label="@string/update_assign"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.capnhatphienban.CapNhatUngDungActivity"
+            android:label="@string/title_activity_cap_nhat_ung_dung"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.vesinhantoan.CommentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.viewImage.ViewImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.nhaphoso.NhapHoSoActivity"
+            android:label="@string/title_activity_nhap_ho_so"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.giaonhanhoso.GiaoHoSoActivity"
+            android:label="@string/title_activity_giao_ho_so"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.giaonhanhoso.GiaoHoSoDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.giaonhanhoso.SignActivity"
+            android:label="@string/title_activity_sign"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.vitritrong.FreeLocationActivity"
+            android:label="@string/title_activity_free_location"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.palletcartonchecking.KiemPalletCartonActivity"
+            android:label="@string/title_activity_pallet_carton_checking"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.nangsuat.NangSuatActivity"
+            android:label="@string/title_activity_nang_suat"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.lichsuravao.LichSuRaVaoActivity"
+            android:label="@string/title_activity_lich_su_ra_vao"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.kiemhoso.KiemHoSoNoEMDKActivity"
+            android:label="@string/title_activity_kiem_ho_so"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.lichlamviec.LichLamViecActivity"
+            android:label="@string/title_activity_lich_lam_viec"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.kiemvitri.KiemViTriNoEMDKActivity"
+            android:label="@string/title_activity_kiem_vi_tri"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.chuyenhang.ChuyenHangActivity"
+            android:label="@string/title_activity_chuyen_hang"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.chuyenhang.lichsu.LichSuChuyenHangActivity"
+            android:label="@string/title_activity_lich_su_chuyen_hang"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.tonkho.khachhang.StockOnHandActivity"
+            android:label="@string/title_activity_stock_on_hand"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.tonkho.detailkhachhang.StockOnHandByCustomerActivity"
+            android:label="@string/title_activity_stock_on_hand_by_customer"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.tonkho.detailproduct.StockOnHandDetailsActivity"
+            android:label="@string/title_activity_stock_on_hand_details"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.nhapngoaigio.OverTimeEntryActivity"
+            android:label="@string/title_activity_nhap_ngoai_gio"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.nhapngoaigio.OverTimeOrderDetailsActivity"
+            android:label="@string/title_activity_over_time_order_details"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.kiemqa.metroqacheckingsuppliers.MetroQACheckingSuppliersActivity"
+            android:label="@string/title_activity_metro_qachecking_suppliers"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.kiemqa.metroqacheckinglistproducts.QACheckingListProductsActivity"
+            android:label="@string/title_activity_metro_checking_product_list"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.lichlamviec.CalendarViewActivity"
+            android:label="@string/title_activity_calendar_view"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.kiemqa.metroqacheckingproduct.MetroCheckingProductActivity"
+            android:label="@string/title_activity_metro_checking_product"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.kiemqa.metroqacheckingcarton.MetroCartonActivity"
+            android:label="@string/title_activity_metro_carton"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.gps.listuser.ListUserActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.gps.MapsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.nhapngoaigio.detail.ListOverTimeEntryActivity"
+            android:label="@string/title_activity_list_over_time_entry"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.giaonhanhoso.cartonreturn.DispatchingOrderReturnedActivity"
+            android:label="@string/title_activity_dispatching_order_returned"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.technical.schedulejobplan.ScheduleJobActivity"
+            android:label="@string/title_activity_schedule_job"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.equipment.EquipmentInventoryNoEMDKActivity"
+            android:label="@string/title_activity_equipment_inventory"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.containerandtruckinfor.ContainerAndTruckInfoActivity"
+            android:label="@string/title_container_information"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.vitritrong.FreeLocationDetailsActivity"
+            android:label="@string/title_activity_free_location_details"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.opportunity.ListOpportunityActivity"
+            android:label="@string/title_list_opportunity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.opportunity.add.AddOpportunityActivity"
+            android:label="@string/title_activity_add_opportunity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.opportunity.OpportunityDetailActivity"
+            android:label="@string/title_activity_opportunity_detail"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.crm.CRMActivity"
+            android:label="@string/title_activity_crm"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.crm.add.AddCRMActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.crm.detail.MeetingDetailActivity"
+            android:label="@string/title_activity_meeting_detail"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.mms.MaintenanceActivity"
+            android:label="@string/title_activity_maintenance_job"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.mms.add.CreateMaintenanceActivity"
+            android:label=""
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.register.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.technical.schedulejobplan.UpdateScheduleJobActivity"
+            android:label="@string/title_activity_update_schedule_job_assign"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.mms.detail.MaintenanceJobDetailsActivity"
+            android:label="@string/title_activity_mj_details"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.nangsuatnhanvien.NangSuatNhanVienActivity"
+            android:label="@string/title_activity_nsnv"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.booking.BookingActivity"
+            android:label="@string/title_activity_booking" />
+        <activity
+            android:name="org.achartengine.GraphicalActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.DeviceInfoActivity"
+            android:label="Device info"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.kiemvesinh.KiemVeSinhActivity"
+            android:label="@string/kvs_title_activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.kiemvesinh.InsertKVSActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.giaonhanhosooffline.DispatchingOrderActivity"
+            android:label="@string/title_activity_giao_ho_so"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.giaonhanhosooffline.DispatchingOrderDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.bigc.SuppliersTodayActivity"
+            android:label="@string/title_activity_suppliers_today"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.bigc.StoresOfSupplierActivity"
+            android:label="@string/title_activity_stores_of_supplier"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.bigc.ProductsOfStoreActivity"
+            android:label="@string/title_activity_products_of_store"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.bigc.ProductUpdateActivity"
+            android:label="@string/title_activity_product_update"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.bigc.BasketMovementActivity"
+            android:label="@string/label_basket_movement_activity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.bigcqa.QaSupplierActivity"
+            android:label="@string/title_activity_suppliers_today"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.bigcqa.QaPoProductActivity"
+            android:label="QA PO Detail"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.detailphieu.ProductDetailActivity"
+            android:label="Product Information"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.len_ha_hang.PickPutDetailActivity"
+            android:label="@string/len_ha_hang"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.gskscan.GSKScanActivity"
+            android:label="GSK Scan"
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.palletcartonweighting.PalletCartonWeightingActivity"
+            android:label="PalletID"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.wcs.vcc.main.detailphieu.iso.IsoActivity"
+            android:label="ISO"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.resetpassword.resetpasswordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.tripdelivery.TripDeliveryActivity"
+            android:label="Tóm Tắt Giao Hàng"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.tripdelivery.orderlist.DeliveryOrderListActivity"
+            android:label="Danh Sách Giao Hàng  "
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.tripdelivery.deliverydetail.DeliveryDetailActivity"
+            android:label="Chi Tiết Đơn Hàng"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.capdau.DistributionOrderViewActivity"
+            android:label="DistributionOrderView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wcs.vcc.main.pickship.PickShipActivity"
+            android:label="Pick Ship"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wcs.vcc.main.pickship.detail.PickShipDetailActivity"
+            android:label="Pick Ship Detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wcs.vcc.main.pickship.carton.PickShipCartonActivity"
+            android:label="Pick Ship Carton"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wcs.vcc.main.pickship.cartonscan.PickShipCartonScanActivity"
+            android:label="Pick Ship Carton Scan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wcs.vcc.main.packingscan.PickPackShipOrdersActivity"
+            android:label="Orders"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.packingscan.carton.CartonsActivity"
+            android:label="Scan Cartons"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wcs.vcc.main.packingscan.pack.PacksActivity"
+            android:label="Scan Pack"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.wcs.vcc.main.packingscan.packdetails.PackDetailsActivity"
+            android:label="Pack Details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wcs.vcc.main.scanbarcode.ScanBarcodeActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.wcs.vcc.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <receiver
+            android:name="com.wcs.vcc.main.services.NotificationDeleteBroadcast"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver android:name="com.wcs.vcc.utilities.AlertReceiver" />
+
+        <service
+            android:name="com.wcs.vcc.main.services.NotificationServices"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.wcs.vcc.main.services.CheckActive"
+            android:exported="false" />
+        <service
+            android:name="com.wcs.vcc.main.services.UpdateLocationServices"
+            android:exported="false" />
+
+        <uses-library
+            android:name="com.symbol.emdk"
+            android:required="false" />
+    </application>
+
+</manifest>

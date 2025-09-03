@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/item_mms_employee_info"
+        style="@style/EditTextNoBackground"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.5"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/label_id_name"
+        android:paddingTop="@dimen/adjust_edit_text_padding_top" />
+
+    <EditText
+        android:id="@+id/item_mms_employee_duration"
+        style="@style/EditTextNoBackground"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:hint="@string/label_duration"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:paddingTop="@dimen/adjust_edit_text_padding_top">
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/item_mms_employee_ot"
+        style="@style/EditTextNoBackground"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/label_ot"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:paddingTop="@dimen/adjust_edit_text_padding_top" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/item_mms_employee_evaluation"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_remove_width" />
+
+    <EditText
+        android:id="@+id/item_mms_employee_note"
+        style="@style/EditTextNoBackground"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:hint="@string/label_note"
+        android:imeOptions="actionDone"
+        android:inputType="text|textMultiLine"
+        android:paddingTop="@dimen/adjust_edit_text_padding_top" />
+
+    <ImageView
+        android:id="@+id/item_mms_employee_remove"
+        android:layout_width="@dimen/icon_remove_width"
+        android:layout_height="@dimen/icon_remove_width"
+        android:background="@drawable/selector_gray_transparent"
+        android:clickable="true"
+        android:contentDescription="@string/description_remove_job_definition"
+        android:src="@drawable/ic_action_remove" />
+
+</LinearLayout>

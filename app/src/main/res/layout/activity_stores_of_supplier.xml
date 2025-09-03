@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wcs.vcc.main.bigc.StoresOfSupplierActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:padding="@dimen/padding_5dp"
+        android:id="@+id/tv_stores_of_supplier_header"
+        android:textColor="#A00"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_height="wrap_content" />
+
+    <include
+        layout="@layout/item_stores_supplier"
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/lv_stores_of_supplier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@drawable/shadow" />
+
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/border_black_color_label"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="STT"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/border_black_color_label"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="NSX"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/border_black_color_label"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="HSD"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/border_black_color_label"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="Số Kg"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/border_black_color_label"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="Lot/Ref"/>
+
+
+</LinearLayout>

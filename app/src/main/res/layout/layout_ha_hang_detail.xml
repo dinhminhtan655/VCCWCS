@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center_vertical"
+    android:padding="4dp">
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/header_pick_put_scanDO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outline_bottom"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_target_scan_detailDO"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/barcode"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:textCursorDrawable="@null">
+
+            <requestFocus />
+        </EditText>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#444" />
+
+        <TextView
+            android:id="@+id/tv_prev_barcode_detailDO"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:textSize="17sp"
+            tools:text="PI0000213012301" />
+
+        <ImageView
+            android:id="@+id/ivCameraScan_detailDO"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/selector_gray_white"
+            android:scaleType="center"
+            android:src="@drawable/ic_action_image_camera_holo_light"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:id="@+id/tvResultDO"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            tools:text="OK" />
+
+        <TextView
+            android:id="@+id/tvPltScannedQtyDO"
+            style="@style/AppTheme.BaseText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="22/22" />
+
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="Thùng: " />
+
+        <TextView
+            android:id="@+id/tvPackageQtyDO"
+            style="@style/AppTheme.BaseText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            tools:text="99" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvPalletNumberDO"
+            style="@style/AppTheme.BaseText"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="9644709" />
+
+        <TextView
+            android:id="@+id/tvLocationNumberDO"
+            style="@style/AppTheme.BaseText"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="H-19-24-4-1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Tên: "
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvProductNameDO"
+            style="@style/AppTheme.BaseText"
+            android:layout_marginEnd="4dp"
+            android:textSize="17sp"
+            tools:text="KEM BULLA SPLITS (TROPICAL, ORANGE, WILDBERRY) 5X10s" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="NSX: " />
+
+        <TextView
+            android:id="@+id/tvProductionDateDO"
+            style="@style/AppTheme.BaseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="20/3/2021" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="HSD: " />
+
+        <TextView
+            android:id="@+id/tvExpDateDO"
+            style="@style/AppTheme.BaseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="20/3/2021" />
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/border_black_color_label"
+        android:orientation="horizontal"
+        android:paddingStart="4dp"
+        android:paddingEnd="2dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="SL Cần Pick: " />
+
+        <EditText
+            android:id="@+id/et_slDO"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_msgDO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:textColor="#0020f1"
+        android:textSize="20sp"
+        tools:text="Bạn đã scan giàn kệ '01-00', vui long scan tiếp tầng trên xe!" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnOkDO"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="#CCC"
+            android:gravity="center"
+            android:text="Đồng ý" />
+
+        <Button
+            android:id="@+id/btnCloseDO"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="#CCC"
+            android:gravity="center"
+            android:text="Đóng" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

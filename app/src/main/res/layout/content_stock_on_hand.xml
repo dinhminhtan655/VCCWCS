@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.wcs.vcc.main.tonkho.khachhang.StockOnHandActivity"
+    tools:showIn="@layout/activity_stock_on_hand">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEE">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="CusName"
+            android:textAlignment="center"
+            android:textColor="#000" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEE">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="CusID"
+            android:textAlignment="center"
+            android:textColor="#A00" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:singleLine="true"
+            android:text="Location"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="Pallet"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="Weight"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEE">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="Availabe"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="Qty"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:singleLine="true"
+            android:text="Exported"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:maxLines="1"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="Hold"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:maxLines="1"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="Picked"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/lvOrderDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@drawable/shadow" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEE">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textAlignment="center"
+            android:textColor="#A00" />
+
+        <TextView
+            android:id="@+id/tv_stock_on_hand_TotalLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/tv_stock_on_hand_TotalPallet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/tv_stock_on_hand_TotalWeight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEE">
+
+        <TextView
+            android:id="@+id/tv_stock_on_hand_TotalAfter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="123"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/tv_stock_on_hand_TotalCurrent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textAlignment="center"
+
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/tv_stock_on_hand_TotalExported"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/tv_stock_on_hand_TotalHold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:maxLines="1"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="Hold"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/tv_stock_on_hand_TotalPicked"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:maxLines="1"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="Picked"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+
+
+
+
+    </LinearLayout>
+</LinearLayout>

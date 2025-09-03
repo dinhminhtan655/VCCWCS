@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.capdau.DistributionOrderView" />
+
+        <variable
+            name="onItemClickListener"
+            type="com.wcs.vcc.main.capdau.DistributionOrderViewAdapter.OnItemClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_item_distribution_order_truck_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="@{item.TruckNumber}"
+            tools:text="Số xe" />
+
+        <TextView
+            android:id="@+id/tv_item_distribution_order_driver_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="@{item.DriverName}"
+            tools:text="Tên TX" />
+
+
+        <TextView
+            android:id="@+id/tv_item_distribution_order_time_in"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="@{item.TimeIn}"
+            tools:text="Giờ vào" />
+
+        <TextView
+            android:id="@+id/tv_item_distribution_order_kilometer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="#00F"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="@{String.valueOf(item.Kilometer)}"
+            tools:text="Km" />
+
+        <TextView
+            android:id="@+id/tv_item_distribution_order_quantity"
+            android:layout_width="0dp"
+            android:textColor="#00F"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="@{String.valueOf(item.Quantity)}"
+            tools:text="Lít" />
+    </LinearLayout>
+</layout>

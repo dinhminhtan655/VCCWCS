@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.wcs.vcc.main.detailphieu.worker.ProductView"/>
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+
+            <Button
+                android:id="@+id/bt_take_picture"
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/camera"
+                app:layout_constraintEnd_toStartOf="@+id/bt_browser_gallery"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <Button
+                android:id="@+id/bt_browser_gallery"
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/gallery"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/bt_take_picture"
+                />
+
+            <TextView
+                android:id="@+id/label_product_number"
+                style="@style/AppTheme.BaseLabel"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/product_number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bt_take_picture"/>
+
+            <TextView
+                android:id="@+id/tv_product_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@{product.ProductNumber}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/label_product_number"
+                app:layout_constraintTop_toBottomOf="@+id/bt_take_picture"
+                app:layout_constraintTop_toTopOf="@id/label_product_number"
+                tools:text="The quick brown fox jumps over the lazy dog"/>
+
+            <TextView
+                android:id="@+id/label_product_name"
+                style="@style/AppTheme.BaseLabel"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/product_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_product_number"/>
+
+            <TextView
+                android:id="@+id/tv_product_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@{product.ProductName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/label_product_name"
+                app:layout_constraintTop_toBottomOf="@+id/bt_take_picture"
+                app:layout_constraintTop_toTopOf="@id/label_product_name"
+                tools:text="The quick brown fox jumps over the lazy dog"/>
+
+
+            <TextView
+                android:id="@+id/label_net_weight"
+                style="@style/AppTheme.BaseLabel"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/net_weight_package"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_product_name"/>
+
+            <TextView
+                android:id="@+id/tv_net_weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text='@{String.format("%s Kg", product.WeightPerPackage)}'
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/label_net_weight"
+                app:layout_constraintTop_toBottomOf="@+id/bt_take_picture"
+                app:layout_constraintTop_toTopOf="@id/label_net_weight"
+                tools:text="34 Kg"/>
+
+            <TextView
+                android:id="@+id/label_gross_weight"
+                style="@style/AppTheme.BaseLabel"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/gross_weight_package"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_net_weight"/>
+
+            <TextView
+                android:id="@+id/tv_gross_weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text='@{String.format("%s Kg", product.GrossWeightPerPackage)}'
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/label_gross_weight"
+                app:layout_constraintTop_toBottomOf="@+id/bt_take_picture"
+                app:layout_constraintTop_toTopOf="@id/label_gross_weight"
+                tools:text="34 Kg"/>
+
+            <TextView
+                android:id="@+id/label_packages"
+                style="@style/AppTheme.BaseLabel"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/packages"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_gross_weight"/>
+
+            <TextView
+                android:id="@+id/tv_packages"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@{product.Packages}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/label_packages"
+                app:layout_constraintTop_toBottomOf="@+id/bt_take_picture"
+                app:layout_constraintTop_toTopOf="@id/label_packages"
+                tools:text="Ctns"/>
+
+            <TextView
+                android:id="@+id/label_packages_per_pallet"
+                style="@style/AppTheme.BaseLabel"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/packages_per_pallet"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_packages"/>
+
+            <TextView
+                android:id="@+id/tv_packages_per_pallet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@{String.valueOf(product.PackagesPerPallet)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/label_packages_per_pallet"
+                app:layout_constraintTop_toBottomOf="@+id/bt_take_picture"
+                app:layout_constraintTop_toTopOf="@id/label_packages_per_pallet"
+                tools:text="123"/>
+
+            <View
+                android:id="@+id/v_shadow"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shadow"
+                app:layout_constraintTop_toBottomOf="@id/tv_packages_per_pallet"/>
+
+            <ListView
+                android:id="@+id/lv_product_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/v_shadow"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

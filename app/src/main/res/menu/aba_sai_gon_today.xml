@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.wcs.vcc.main.phieuhomnay.HomNayActivity">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_white"
+        android:title="@string/search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_menu"
+        android:title="@string/kho"
+        app:showAsAction="always">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/action_all"
+                    android:checked="true"
+                    android:title="@string/tat_ca" />
+                <item
+                    android:id="@+id/action_123"
+                    android:title="@string/kho_aba1" />
+<!--                <item-->
+<!--                    android:id="@+id/action_bigc"-->
+<!--                    android:title="@string/bigc" />-->
+<!--                <item-->
+<!--                    android:id="@+id/action_vinmark"-->
+<!--                    android:title="@string/vinmart" />-->
+            </group>
+        </menu>
+    </item>
+
+</menu>

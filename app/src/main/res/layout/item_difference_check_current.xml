@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.doichieu.difference_check.current.DifferenceCheckCurrent" />
+        <variable
+            name="handlers"
+            type="com.wcs.vcc.main.doichieu.difference_check.current.IEventHandler" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:text="@{item.PalletNumber}"
+            tools:text="PalletId"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:text="@{item.Label}"
+            tools:text="Label"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:text="@{item.OriginalQuantity}"
+            tools:text="Original"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:text="@{item.AfterDPQuantity}"
+            tools:text="AfDP"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:text="@{item.CurrentQuantity}"
+            tools:text="Current"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:text="@{item.DispatchingQuantity}"
+            tools:text="Dispatched"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:text="@{item.DispatchingPlanQty}"
+            tools:text="DisPlan"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:onClick="@{() -> handlers.onAfterActualClick(item)}"
+            android:text="@{item.AfterDPActual}"
+            tools:text="AfAct"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:text="@{item.CurrentActual}"
+            android:onClick="@{() -> handlers.onCurrentActualClick(item)}"
+            tools:text="CuAct"
+            />
+    </LinearLayout>
+</layout>

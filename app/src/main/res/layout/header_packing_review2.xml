@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:text="St No."
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:text="SL Chia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:text="SL Scan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:text="SL Move"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:text="Confirm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:text="+/-"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:text="Remark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+
+</LinearLayout>

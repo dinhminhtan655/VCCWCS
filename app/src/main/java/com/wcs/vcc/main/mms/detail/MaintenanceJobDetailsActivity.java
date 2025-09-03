@@ -1,0 +1,168 @@
+package com.wcs.vcc.main.mms.detail;
+
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
+
+import com.wcs.wcs.R;import com.wcs.vcc.main.BaseActivity;
+import com.wcs.vcc.main.mms.MaintenanceJob;
+import com.wcs.vcc.main.technical.schedulejobplan.ScheduleJobActivity;
+import com.wcs.vcc.preferences.LoginPref;
+import com.wcs.vcc.api.MaintenanceJobDetailParameter;
+import com.wcs.vcc.api.MyRetrofit;
+import com.wcs.vcc.api.NoInternet;
+import com.wcs.vcc.api.RetrofitError;
+import com.wcs.vcc.utilities.Utilities;
+import com.wcs.vcc.utilities.WifiHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
+
+public class MaintenanceJobDetailsActivity extends BaseActivity {
+
+    private RecyclerView listView;
+    private String username;
+    private String frequency;
+    private int mjId;
+    private MJDetailAdapter adapter;
+    private int formId;
+    private ArrayList<Object> arrayDetails = new ArrayList<>();
+    private View.OnClickListener tryAgain = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            getMaintenanceJobDetail();
+        }
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maintenance_job_details);
+        initial();
+    }
+
+    private void mapView() {
+        listView = (RecyclerView) findViewById(R.id.mj_detail_lv);
+    }
+
+    private void setListener() {
+        /*listView.addOnItemTouchListener(new RecyclerViewTouchListener(this, listView, new RecyclerViewTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                adapter.setSelected(position);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+            }
+        }))*/
+        ;
+    }
+
+    private void initial() {
+        mapView();
+        setListener();
+        Utilities.showBackIcon(getSupportActionBar());
+        username = LoginPref.getUsername(this);
+        snackBarView = listView;
+        mjId = getIntent().getIntExtra(ScheduleJobActivity.MJ_ID, 0);
+        getSupportActionBar().setTitle(getIntent().getStringExtra(MaintenanceJob.EQUIPMENT_NAME));
+        frequency = getIntent().getStringExtra(ScheduleJobActivity.FREQUENCY);
+        listView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        listView.setHasFixedSize(true);
+
+        getMaintenanceJobDetail();
+    }
+
+    private void getMaintenanceJobDetail() {
+        final ProgressDialog dialog = Utilities.getProgressDialog(this, getString(R.string.loading_data));
+        dialog.show();
+        if (!WifiHelper.isConnected(this)) {
+            RetrofitError.errorWithAction(this, new NoInternet(), TAG, snackBarView, tryAgain);
+            dismissDialog(dialog);
+            return;
+        }
+        MyRetrofit.initRequest(this)
+                .getMaintenanceJobDetail(new MaintenanceJobDetailParameter(username, mjId, frequency))
+                .enqueue(new Callback<List<MaintenanceJobDetail>>() {
+                    @Override
+                    public void onResponse(Response<List<MaintenanceJobDetail>> response, Retrofit retrofit) {
+                        List<MaintenanceJobDetail> body = response.body();
+                        if (response.isSuccess() && body != null && body.size() > 0) {
+                            formId = body.get(0).getFormId();
+                            switch (formId) {
+                                case 1:
+                                    groupObjects(body);
+                                    adapter = new BTMayNenAdapter(MaintenanceJobDetailsActivity.this, arrayDetails, snackBarView);
+                                    break;
+                                case 3:
+                                    groupObjects(body);
+//                                    findViewById(R.id.mj_detail_header_bt_nam_may_nen).setVisibility(View.VISIBLE);
+                                    adapter = new BTNamMayNenAdapter(MaintenanceJobDetailsActivity.this, arrayDetails, snackBarView);
+                                    break;
+                                case 0:
+                                    groupObjects(body);
+                                    adapter = new BTHeThongBaoChayAdapter(MaintenanceJobDetailsActivity.this, arrayDetails, snackBarView);
+                                    break;
+                            }
+                            listView.setAdapter((RecyclerView.Adapter) adapter);
+                        }
+                        dismissDialog(dialog);
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        dismissDialog(dialog);
+                        RetrofitError.errorWithAction(MaintenanceJobDetailsActivity.this, t, TAG, snackBarView, tryAgain);
+                    }
+                });
+    }
+
+
+    private void groupObjects(List<MaintenanceJobDetail> body) {
+        String tmpItemGroup = "";
+        for (MaintenanceJobDetail item : body) {
+            String itemGroup = item.getItemGroup();
+            if (tmpItemGroup.equalsIgnoreCase(itemGroup)) {
+                arrayDetails.add(item);
+            } else {
+                Header header = new Header(itemGroup);
+                arrayDetails.add(header);
+                arrayDetails.add(item);
+            }
+            tmpItemGroup = itemGroup;
+        }
+    }
+
+  /*  @Override
+    public boolean onCreateOptionsMenu(MenuItem menu) {
+        getMenuInflater().inflate(R.menu.mj_detail, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.action_save_all) {
+            AlertDialog dialog = new AlertDialog.Builder(this)
+                    .setMessage("Bạn muốn update tất cả các dòng dữ liệu?")
+                    .setPositiveButton(getString(R.string.label_update), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            adapter.updateAll();
+                        }
+                    })
+                    .setNegativeButton(getString(R.string.label_cancel), null)
+                    .create();
+            dialog.show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
+}

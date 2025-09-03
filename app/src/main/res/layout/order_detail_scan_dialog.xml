@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvNoData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="#277a00"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:id="@+id/scan_dialog_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/scan_dialog_palletId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:textSize="40sp"
+            tools:text="20" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/scan_dialog_sl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center_horizontal"
+                android:textColor="#277a00"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                tools:text="20" />
+
+            <EditText
+                android:id="@+id/edtSL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:textColor="#277a00"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                tools:text="OK" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnDialogTon"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:text="Tồn"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scan_dialog_remain"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:text="NSX"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scan_dialog_nsx"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center_horizontal"
+                android:textColor="#000" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:text="HSD"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scan_dialog_hsd"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center_horizontal"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnSLChecked"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@drawable/outline_right_bottom_dark_bg"
+                android:gravity="center"
+                android:text="SL Đã kiểm"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edtSLChecked"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_background"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnSL"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:text="TX"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scan_dialog_tx"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_background"
+                android:gravity="center_vertical"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lnCusRef"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:text="Ref"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edtCusRef"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_background"
+                android:gravity="center_vertical"
+                android:hint="..."
+                android:imeOptions="actionNext"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnCusRef2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:text="Ref2"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edtCusRef2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_background"
+                android:gravity="center_vertical"
+                android:imeOptions="actionNext"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edtRemark"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:hint="Ghi chú..."
+            android:imeOptions="actionDone"
+            android:minLines="5"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+
+        <LinearLayout
+            android:id="@+id/lnNSXHSDChecked"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@drawable/outline_right_bottom_dark_bg"
+                android:gravity="center"
+                android:text="NSX"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnNSXChecked"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:enabled="false"
+                android:gravity="center"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@drawable/outline_right_bottom_dark_bg"
+                android:gravity="center"
+                android:text="HSD"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnHSDChecked"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:enabled="false"
+                android:gravity="center"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnNSXHSD"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:text="NSX"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnNSX"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:text="HSD"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnHSD"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cb_detail_phieu_checked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:checked="true"
+            android:text="@string/phieu_da_duoc_kiem"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_background"
+                android:text="Cập nhật" />
+
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_background"
+                android:text="Đóng"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/scan_dialog_not_scan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="KHÔNG SCAN ĐƯỢC"
+                android:textColor="#000"
+                android:textSize="30sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/scan_dialog_not_found_pallet_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="KHÔNG TÌM THẤY\nTHÔNG TIN"
+                android:textColor="#000"
+                android:textSize="30sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnClose2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Đóng"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,46 @@
+package com.wcs.vcc.main.services;
+
+import com.google.gson.annotations.SerializedName;
+import com.wcs.vcc.utilities.Utilities;
+
+/**
+ * Created by tranxuanloc on 3/4/2016.
+ */
+public class NotificationInfo {
+    @SerializedName("NotiSubject")
+    private String subject;
+    @SerializedName("NotiContent")
+    private String content;
+    @SerializedName("NotiDate")
+    private String date;
+    @SerializedName("NotiOrderType")
+    private String type;
+    @SerializedName("NotiQty")
+    private short notiQty;
+    @SerializedName("OrderNumber")
+    private String orderNumber;
+
+    public short getNotiQty() {
+        return notiQty;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getDate() {
+        return Utilities.formatDate_ddMMyyHHmm(date);
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+}

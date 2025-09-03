@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="1dp">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            ></LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:id="@+id/ivArrowLeft"
+                android:layout_width="20dp"
+                android:layout_height="32dp"
+                android:background="@drawable/selector_gray_white"
+                android:src="@drawable/ic_hardware_keyboard_arrow_left" />
+
+            <Button
+                android:id="@+id/btChooceDate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#FFF"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textColor="#000" />
+
+            <ImageView
+                android:id="@+id/ivArrowRight"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/selector_gray_white"
+                android:src="@drawable/ic_hardware_keyboard_arrow_right" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#000" />
+
+    <LinearLayout
+        android:id="@+id/header_scan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outline_bottom"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/sp_list_id_customer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tooltipText="MSV-384" />
+    </LinearLayout>
+
+    <include layout="@layout/scan_barcode" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#000" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#000" />
+    <include
+        layout="@layout/header_check_packing_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pick_pack_ship_order"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_packing_status" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@drawable/shadow" />
+    </FrameLayout>
+</LinearLayout>

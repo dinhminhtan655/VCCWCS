@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.api.production_order.ProductionOrder" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="42dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/outline_right_bottom_dark"
+                    android:padding="4dp"
+                    android:textColor="#A00"
+                    android:textStyle="bold"
+                    android:text="@{item.ProductionOrderNumber}"
+                    tools:text="PO-12" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/outline_right_bottom_dark"
+                    android:padding="4dp"
+                    android:text="@{item.DispatchingOrderNumber}"
+                    tools:text="DO0222" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/outline_right_bottom_dark"
+                    android:padding="4dp"
+                    android:textColor="#00F"
+                    android:textStyle="bold"
+                    android:text="@{item.StatusName}"
+                    tools:text="EDI" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/outline_right_bottom_dark"
+                    android:padding="4dp"
+                    android:text="@{item.ProductNumber}"
+                    android:textColor="#00F"
+                    android:textStyle="bold"
+                    tools:text="MSV-385-00001" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/outline_right_bottom_dark"
+                    android:padding="4dp"
+                    android:text="@{item.ProductName}"
+                    tools:text="Cuống họng heo (" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/outline_right_bottom_dark"
+                    android:gravity="center_horizontal"
+                    android:padding="4dp"
+                    android:text="@{String.valueOf(item.Planned_Unit)}"
+                    tools:text="0" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</layout>

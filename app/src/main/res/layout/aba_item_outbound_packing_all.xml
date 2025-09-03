@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvPalletID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"
+        tools:text="1"/>
+
+    <TextView
+        android:id="@+id/tvSoBich"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        android:textColor="#E2C425"
+        android:textStyle="bold"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"
+        tools:text="3"/>
+
+
+    <TextView
+        android:id="@+id/tvSLMove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        android:textColor="#F44336"
+        android:textStyle="bold"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"
+        tools:text="0"/>
+
+
+    <TextView
+        android:id="@+id/tvSLDieuChinh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        android:textColor="#F44336"
+        android:textStyle="bold"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"
+        tools:text="0"/>
+
+
+    <TextView
+        android:id="@+id/tvConfirmQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"
+        tools:text="3"/>
+
+
+    <TextView
+        android:id="@+id/tvThieuDu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"
+        tools:text="0"/>
+
+</LinearLayout>

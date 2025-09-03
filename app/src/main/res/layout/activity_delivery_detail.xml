@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.wcs.vcc.main.tripdelivery.deliverydetail.TripDeliveryOrderDetail"/>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <include
+                android:id="@+id/view_scan_barcode"
+                layout="@layout/scan_barcode"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Đơn hàng: "
+                app:layout_constraintTop_toBottomOf="@id/view_scan_barcode"/>
+
+            <TextView
+                android:id="@+id/tv_delivery_detail_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.OrderNumber}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_1"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_1"
+                tools:text="DO-123123"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="KH: "
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_1"
+                app:layout_constraintStart_toEndOf="@id/tv_delivery_detail_1"/>
+
+            <TextView
+                android:id="@+id/tv_delivery_detail_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.CustomerNumber}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_2"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_2"
+                tools:text="Good Food"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Cửa hàng: "
+                app:layout_constraintTop_toBottomOf="@id/tv_delivery_detail_1"/>
+
+            <TextView
+                android:id="@+id/tv_delivery_detail_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.CustomerClientName}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_3"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_3"
+                tools:text="Vinmart Vo Van Tan"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Địa chỉ: "
+                app:layout_constraintTop_toBottomOf="@id/tv_delivery_detail_3"/>
+
+            <TextView
+                android:id="@+id/tv_delivery_detail_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.CustomerClientAddress}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_4"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_4"
+                tools:text="64/1K D3 Phuong 25, Binh Thanh, HCM"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Số thùng: "
+                app:layout_constraintTop_toBottomOf="@id/tv_delivery_detail_4"/>
+
+            <TextView
+                android:id="@+id/tv_delivery_detail_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(data.TotalPackages)}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_5"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_5"
+                tools:text="500"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Số kg: "
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_delivery_detail_5"
+                app:layout_constraintStart_toEndOf="@id/tv_delivery_detail_5"/>
+
+            <TextView
+                android:id="@+id/tv_delivery_detail_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(data.TotalWeight)}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_6"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_6"
+                tools:text="100"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Số gói: "
+                app:layout_constraintTop_toBottomOf="@id/tv_delivery_detail_5"/>
+
+            <TextView
+                android:id="@+id/tv_delivery_detail_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(data.TotalUnits)}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_7"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_7"
+                tools:text="1000"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Số tiền: "
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_delivery_detail_7"
+                app:layout_constraintStart_toEndOf="@id/tv_delivery_detail_7"/>
+
+            <TextView
+                android:id="@+id/tv_delivery_detail_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(data.CashCollectionAmount)}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_8"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_8"
+                tools:text="100.000.000"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Người giao: "
+                app:layout_constraintTop_toBottomOf="@id/tv_delivery_detail_7"/>
+
+            <TextView
+                android:id="@+id/tv_delivery_detail_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.DeliveredBy}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_9"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_9"
+                tools:text="Tran Xuan Loc"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Giờ giao: "
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_delivery_detail_9"
+                app:layout_constraintStart_toEndOf="@id/tv_delivery_detail_9"/>
+
+            <TextView
+                android:id="@+id/tv_delivery_detail_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.DeliveredTime}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_10"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_10"
+                tools:text="27/07/2018 12:12"/>
+
+            <TextView
+                android:id="@+id/label_delivery_detail_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Từ chối: "
+                app:layout_constraintTop_toBottomOf="@id/tv_delivery_detail_9"/>
+
+            <CheckBox
+                android:id="@+id/cb_delivery_detail_rejected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{data.IsRejected}"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_11"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_11"/>
+
+
+            <TextView
+                android:id="@+id/label_delivery_detail_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Lý do: "
+                app:layout_constraintBaseline_toBaselineOf="@id/cb_delivery_detail_rejected"
+                app:layout_constraintStart_toEndOf="@id/cb_delivery_detail_rejected"/>
+
+            <EditText
+                android:id="@+id/et_delivery_detail_rejected_reason"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.RejectedRemark}"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_delivery_detail_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/label_delivery_detail_12"
+                tools:text="The quick brown fox jumps over the lazy dog" />
+
+            <TextView
+                android:id="@+id/label_delivery_detail_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Trạng thái: "
+                app:layout_constraintTop_toBottomOf="@id/et_delivery_detail_rejected_reason"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <Spinner
+                android:id="@+id/sp_delivery_detail_status_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="44dp"
+                app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.065"
+                app:layout_constraintStart_toEndOf="@+id/label_delivery_detail_13" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:weightSum="4"
+                app:layout_constraintTop_toBottomOf="@+id/label_delivery_detail_13">
+
+                <Button
+                    android:id="@+id/bt_delivery_detail_update_status"
+                    android:layout_width="116dp"
+                    android:layout_height="43dp"
+                    android:padding="0dp"
+                    android:layout_weight="1"
+                    android:text="Cập nhật"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/bt_delivery_detail_capture_photo"
+                    android:layout_width="126dp"
+                    android:layout_height="45dp"
+                    android:text="Chụp hình"
+                    android:layout_weight="1"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/bt_delivery_detail_sign"
+                    android:layout_width="107dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="Ký nhận"
+                    android:layout_weight="1"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/bt_delivery_detail_item_detail"
+                    android:layout_width="120dp"
+                    android:layout_height="47dp"
+                    android:text="Chi tiết hàng"
+                    android:layout_weight="1"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_item_pick_put_product_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="Tên Hàng"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tv_item_pick_put_customer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="Mã KH"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_item_pick_put_location"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="V.trí"
+            android:textAlignment="center" />
+
+
+        <TextView
+            android:id="@+id/tv_item_order_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="Số Order"
+            android:textAlignment="center" />
+
+
+        <TextView
+            android:id="@+id/tv_item_pick_put_pallet_id"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="PalletID"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_item_pick_put_pallet_carton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="SL"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tv_item_remain"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="Còn lại"
+            android:singleLine="true"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tv_item_pick"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="Pick"
+            android:singleLine="true"
+            android:textAlignment="center" />
+
+
+        <TextView
+            android:id="@+id/tv_item_pick_put_user"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:padding="2dp"
+            android:text="Scan bởi"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tv_item_pick_put_scanned_by"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:baselineAligned="false"
+            android:padding="2dp"
+            android:singleLine="true"
+            android:text="Thời gian"
+            android:textAlignment="center" />
+
+
+
+        
+
+    </LinearLayout>
+
+
+</LinearLayout>

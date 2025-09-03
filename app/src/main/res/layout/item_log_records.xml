@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.logrecords.LogRecord" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_black_color_label"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="2dp"
+            android:textSize="14sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+            android:text="@{item.loginLevel}"
+            tools:text="Đăng nhập"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_black_color_label"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="2dp"
+            android:textSize="14sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+            android:text="@{item.logDescription}"
+            tools:text="Đăng nhập"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_black_color_label"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="2dp"
+            android:textSize="14sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+            android:text="@{item.createDate}"
+            tools:text="25/12/2020"/>
+
+    </LinearLayout>
+
+</layout>
+
+

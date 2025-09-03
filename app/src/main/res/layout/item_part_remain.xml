@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/part_remain_quantity"
+        style="@style/EditTextNoBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:hint="@string/qty"
+        android:inputType="number"
+        android:minWidth="35dp"
+        android:selectAllOnFocus="true"
+        android:text="1">
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/part_remain_description"
+        style="@style/EditTextNoBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/part_remain_quantity"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/label_part_description"
+        android:padding="5dp" />
+
+    <ImageView
+        android:id="@+id/part_remain_remove"
+        android:layout_width="@dimen/icon_remove_width"
+        android:layout_height="@dimen/icon_remove_width"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/part_remain_description"
+        android:background="@drawable/selector_gray_transparent"
+        android:clickable="true"
+        android:contentDescription="@string/description_remove_job_definition"
+        android:src="@drawable/ic_action_remove" />
+
+    <LinearLayout
+        android:id="@+id/view103"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/part_remain_description"
+        android:layout_toLeftOf="@id/part_remain_remove">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/label_note" />
+
+        <EditText
+            android:id="@+id/part_remain_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0FFF"
+            android:inputType="textMultiLine|textCapSentences"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="0dp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

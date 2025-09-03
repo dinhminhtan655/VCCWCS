@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_tv_lsch_PalletID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="PalletID"
+            android:textAlignment="center"
+            android:textColor="#0000FF" />
+
+        <TextView
+            android:id="@+id/item_tv_lsch_AuthorisedBy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:singleLine="true"
+            android:text="AuthorisedBy"
+            android:textColor="#0000FF" />
+
+
+        <TextView
+            android:id="@+id/item_tv_lsch_ReasonMovement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="ReasonMovement"
+            android:textColor="#000000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_tv_lsch_FromLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="FromLocation"
+            android:textColor="#000000" />
+
+        <ImageView
+            android:id="@+id/item_iv_lsch_ImgReason"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark" />
+
+
+        <TextView
+            android:id="@+id/item_tv_lsch_ToLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="ToLocation"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_tv_lsch_ProductNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="ProductNumber"
+            android:textColor="#0000FF" />
+
+        <TextView
+            android:id="@+id/item_tv_lsch_ReceivingOrderNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="ReceivingOrderNumber"
+            android:textColor="#0000FF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_tv_lsch_ProductName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="ProductName"
+            android:textColor="#000000" />
+
+
+        <TextView
+            android:id="@+id/item_tv_createdTime"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center"
+            android:textColor="@color/black" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

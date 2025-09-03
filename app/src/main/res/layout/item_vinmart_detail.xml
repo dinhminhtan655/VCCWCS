@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.api.XDockVinInboundWeightReceiveViewDetail" />
+
+    </data>
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:gravity="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="@{item.Item_Code}"
+            tools:text="2002777"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:gravity="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="@{item.Item_Name}"
+            tools:text="ANH HOÀNG THY"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:gravity="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="@{item.returnStrBooking(item.Booking)}"
+            tools:text="2427.000"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:gravity="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="@{item.returnStrActual(item.Actual)}"
+            tools:text="0.000"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:gravity="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="@{item.LoaiCan}"
+            tools:text="All"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:gravity="center"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="@{item.Chia_hang}"
+            tools:text="Closed"/>
+
+    </LinearLayout>
+
+
+</layout>

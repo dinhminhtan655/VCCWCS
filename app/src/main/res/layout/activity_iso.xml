@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="String"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        tools:context="com.wcs.vcc.main.detailphieu.iso.IsoActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/start"/>
+
+            <TextView
+                android:id="@+id/tv_start_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3.5"
+                android:clickable="true"
+                android:textColor="#000"
+                android:background="@drawable/outlines_dark"
+                android:padding="5dp"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/tv_start_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:textColor="#000"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/outlines_dark"
+                android:padding="5dp"
+                android:visibility="visible"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nhiet_do_hang"/>
+
+            <EditText
+                android:id="@+id/et_iso_nhiet_do"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:text="0"
+                android:textColor="@color/black"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal|numberSigned"
+                android:selectAllOnFocus="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/nhiet_do_tren_may_lanh"/>
+
+            <EditText
+                android:id="@+id/et_iso_temp_may_lanh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0"
+                android:inputType="number"
+                android:selectAllOnFocus="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/so_xe"
+                android:selectAllOnFocus="true"/>
+
+            <EditText
+                android:id="@+id/et_iso_trucker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ems="10"
+                android:text="0"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:selectAllOnFocus="true"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/seal"
+                android:selectAllOnFocus="true"/>
+
+            <EditText
+                android:id="@+id/et_iso_seal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ems="10"
+                android:text="0"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:selectAllOnFocus="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="@string/dockNumber"/>
+
+            <EditText
+                android:id="@+id/et_iso_cua"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0"
+                android:imeOptions="actionNext"
+                android:inputType="textCapCharacters"
+                android:selectAllOnFocus="true"/>
+
+            <CheckBox
+                android:id="@+id/cb_iso_co_khoa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/co_khoa"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_iso_floor_dirty"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Sàn bẩn"/>
+
+            <CheckBox
+                android:id="@+id/cb_iso_electricity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Cắm điện"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_iso_smell"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Có mùi"/>
+
+            <CheckBox
+                android:id="@+id/cb_iso_xe_hu_mop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/xe_he_mop_meo"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/cb_iso_co_nhiet_ke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/co_nhiet_ke_tren_xe"/>
+
+            <EditText
+                android:id="@+id/et_iso_thermometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="0"
+                android:minWidth="64dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

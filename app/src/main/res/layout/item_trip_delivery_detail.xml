@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.tripdelivery.orderlist.TripDeliveryDetail"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="42dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_item_trip_delivery_detail_order_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:text="@{item.OrderNumber}"/>
+
+
+        <TextView
+            android:id="@+id/tv_item_trip_delivery_detail_total_weight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:text="@{String.valueOf(item.TotalWeight)}"/>
+
+        <TextView
+            android:id="@+id/tv_item_trip_delivery_detail_client_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:text="@{item.CustomerClientAddress}"/>
+
+
+        <TextView
+            android:id="@+id/tv_item_trip_delivery_detail_status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:text="@{item.TripStatusDescriptions}"/>
+
+        <ImageButton
+            android:id="@+id/btnDetailLocationMap"
+            android:src="@drawable/ic_action_maps_place"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+</layout>

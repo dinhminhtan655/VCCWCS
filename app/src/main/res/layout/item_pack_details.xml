@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.packingscan.packdetails.PackDetail" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="42dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:text="@{String.valueOf(item.PackNumber)}"
+            tools:text="PackID" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="@{item.NetWeight}"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:textStyle="bold"
+            android:textColor="#00F"
+            tools:text="Số kí" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="@{String.valueOf(item.LotNumber)}"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            tools:text="LotNo" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@{item.ProductionDate}"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            tools:text="NSX" />
+    </LinearLayout>
+</layout>

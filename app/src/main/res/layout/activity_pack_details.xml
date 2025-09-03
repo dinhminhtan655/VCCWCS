@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="productName"
+            type="String" />
+
+        <variable
+            name="productNumber"
+            type="String" />
+
+        <variable
+            name="nPacks"
+            type="int" />
+
+        <variable
+            name="nWeight"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text='@{"Mã hàng: " + productNumber}'
+                android:textColor="#A00"
+                android:textStyle="bold"
+                tools:text="Mã hàng: " />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text='@{"Tên hàng: " + productName}'
+                android:textColor="#A00"
+                android:textStyle="bold"
+                tools:text="Tên hàng: " />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#000" />
+
+        <include
+            layout="@layout/header_pack_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/outline_bottom"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_pack_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_pack_details" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/shadow" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="42dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center_vertical"
+                android:padding="4dp"
+                android:textStyle="bold"
+                android:textColor="#A00"
+                android:text='@{"Số gói: " + nPacks}'
+                tools:text="Số gói: " />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:textColor="#00F"
+                android:padding="4dp"
+                android:text='@{"Số kí: " + nWeight}'
+                tools:text="Số kí: " />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

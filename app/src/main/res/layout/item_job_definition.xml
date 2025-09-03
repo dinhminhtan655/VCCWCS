@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="-5dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/job_definition_description"
+        style="@style/EditTextNoBackground"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/label_job_description" />
+
+    <EditText
+        android:id="@+id/job_definition_note"
+        style="@style/EditTextNoBackground"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:hint="@string/label_note"
+        android:inputType="textMultiLine|textCapSentences" />
+
+    <EditText
+        android:id="@+id/job_definition_accident"
+        style="@style/EditTextNoBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:hint="@string/label_accident"
+        android:minWidth="40dp" />
+
+
+    <ImageView
+        android:id="@+id/job_definition_remove"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/selector_gray_transparent"
+        android:clickable="true"
+        android:contentDescription="@string/description_remove_job_definition"
+        android:src="@drawable/ic_action_remove" />
+
+</LinearLayout>
+            

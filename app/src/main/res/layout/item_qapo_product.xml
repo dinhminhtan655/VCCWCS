@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="java.util.Locale"/>
+
+        <variable
+            name="product"
+            type="com.wcs.vcc.main.vo.QaPoProduct"/>
+
+        <variable
+            name="position"
+            type="int"/>
+
+        <variable
+            name="callback"
+            type="com.wcs.vcc.main.bigcqa.QaPoProductCallback"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="36dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvItemGrid"
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col1"
+            android:layout_height="match_parent"
+            android:text="@{product.productNumber}"
+            tools:text="2603044"/>
+
+        <TextView
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col2"
+            android:layout_height="match_parent"
+            android:text="@{product.productName}"
+            tools:text="Toi thai duong"/>
+
+        <TextView
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col3"
+            android:layout_height="match_parent"
+            android:text="@{String.valueOf(product.qty)}"
+            tools:text="0" />
+
+        <TextView
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col4"
+            android:layout_height="match_parent"
+            android:text="@{String.valueOf(product.qtyQA)}"
+            tools:text="0"/>
+
+        <TextView
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col5"
+            android:layout_height="match_parent"
+            android:text="@{String.valueOf(product.qtyQADamageVH)}"
+            tools:text="0.0"/>
+
+        <TextView
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col6"
+            android:layout_height="match_parent"
+            android:text="@{String.valueOf(product.qtyQADamageH)}"
+            tools:text="0"/>
+
+        <TextView
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col7"
+            android:layout_height="match_parent"
+            android:text="@{String.valueOf(product.qtyQADamageL)}"
+            tools:text="0"/>
+
+        <TextView
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col8"
+            android:layout_height="match_parent"
+            android:text='@{String.format(Locale.getDefault(), "%.3f", product.poDetailDamageError)}'
+            tools:text="0.00"/>
+
+        <TextView
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col9"
+            android:layout_height="match_parent"
+            android:text='@{String.format(Locale.getDefault(), "%.3f", product.poDetailDamage)}'
+            tools:text="0.00"/>
+
+        <TextView
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col10"
+            android:layout_height="match_parent"
+            android:text="@string/kg"/>
+
+        <TextView
+            android:id="@+id/txt_item_qapo_product_remark"
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col11"
+            android:layout_height="match_parent"
+            android:text="@{product.remark}"/>
+
+        <TextView
+            android:id="@+id/txt_item_qapo_product_qa"
+            style="@style/ItemGrid"
+            android:layout_width="@dimen/col12"
+            android:layout_height="match_parent"
+            android:text="@{product.qaBy}"/>
+    </LinearLayout>
+</layout>

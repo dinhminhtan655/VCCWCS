@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.api.XDockVinOutboundPackingSummaryView" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.Pallet_ID}"
+            tools:text="001"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.strBooking()}"
+            tools:text="500"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.strSLChia()}"
+            tools:text="500"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.SLScan}"
+            tools:text="50"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.SLMove}"
+            tools:text="450"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.confirmQuantity}"
+            tools:text="500"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.thieuDu}"
+            tools:text="0"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.state}"
+            tools:text="Đủ"/>
+
+    </LinearLayout>
+
+
+</layout>

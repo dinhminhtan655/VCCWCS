@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="reminder">
+        <item>1 minute</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>20 minutes</item>
+        <item>25 minutes</item>
+        <item>30 minutes</item>
+        <item>35 minutes</item>
+        <item>40 minutes</item>
+        <item>45 minutes</item>
+        <item>50 minutes</item>
+        <item>55 minutes</item>
+        <item>1 hour</item>
+        <item>2 hours</item>
+        <item>3 hours</item>
+        <item>12 hours</item>
+        <item>1 day</item>
+        <item>2 days</item>
+        <item>1 week</item>
+    </string-array>
+    <integer-array name="reminder_values">
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>60</item>
+        <item>120</item>
+        <item>180</item>
+        <item>720</item>
+        <item>1440</item>
+        <item>2880</item>
+        <item>10080</item>
+    </integer-array>
+    <string-array name="type_reminder">
+        <item>Notification</item>
+    </string-array>
+    <string-array name="warehouse_id">
+        <item>Warehouse ID</item>
+        <item>123</item>
+        <item>45</item>
+        <item>ABA Hà Nội</item>
+        <item>All</item>
+    </string-array>
+    <string-array name="mj_job">
+        <item>V</item>
+        <item>A</item>
+        <item>R</item>
+        <item>U</item>
+        <item>I</item>
+        <item>C</item>
+        <item>L</item>
+        <item>M</item>
+    </string-array>
+    <string-array name="mj_job_detail">
+        <item>V = OK</item>
+        <item>A = Cân chỉnh</item>
+        <item>R = Sửa chữa</item>
+        <item>U = Ngưng khẩn cấp</item>
+        <item>I = Kiểm tra thay thế</item>
+        <item>C = Vệ sinh</item>
+        <item>L = Bôi trơn</item>
+        <item>M = Đo kiểm, điều chỉnh</item>
+    </string-array>
+    <string-array name="sales_stage">
+        <item>--None--</item>
+        <item>Following</item>
+        <item>Prospecting</item>
+        <item>Qualification</item>
+        <item>Needs analysis</item>
+        <item>Value proposition</item>
+        <item>Id decision makers</item>
+        <item>Perception analysis</item>
+        <item>Proposal/price quote</item>
+        <item>Negotiation/review</item>
+        <item>Closed won</item>
+        <item>Closed lost</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="opportunity_type">
+        <item>--None--</item>
+        <item>Existing business</item>
+        <item>New business</item>
+    </string-array>
+
+    <string-array name="room">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
+</resources>

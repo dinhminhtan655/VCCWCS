@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.doichieu.difference_check.DifferenceCheck" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:text="@{item.ProductNumber}"
+            tools:text="Product Id" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@{item.ProductName}"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            tools:text="Product Name" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="@{item.Received}"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            tools:text="R" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:text="@{item.Dispatched}"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            tools:text="D" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="@{item.DiffAfterDP}"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            tools:text="DiffAf" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="@{item.DiffCurrent}"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            tools:text="DiffCu" />
+    </LinearLayout>
+</layout>

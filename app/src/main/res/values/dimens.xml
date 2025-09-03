@@ -1,0 +1,27 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="grid_spacing">5dp</dimen>
+    <dimen name="padding_5dp">5dp</dimen>
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="all_margin_5dp">5dp</dimen>
+    <dimen name="polyline_width">7dp</dimen>
+    <dimen name="icon_remove_width">25dp</dimen>
+    <dimen name="booking_width">12dp</dimen>
+    <dimen name="adjust_edit_text_padding_top">0dp</dimen>
+    <dimen name="col1">80dp</dimen>
+    <dimen name="col2">140dp</dimen>
+    <dimen name="col3">50dp</dimen>
+    <dimen name="col4">50dp</dimen>
+    <dimen name="col5">50dp</dimen>
+    <dimen name="col6">60dp</dimen>
+    <dimen name="col7">50dp</dimen>
+    <dimen name="col8">50dp</dimen>
+    <dimen name="col9">50dp</dimen>
+    <dimen name="col10">40dp</dimen>
+    <dimen name="col11">120dp</dimen>
+    <dimen name="col12">80dp</dimen>
+    <item name="disable_alpha_material_light" format="float" type="dimen">0.26</item>
+</resources>

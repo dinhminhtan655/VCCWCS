@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.wcs.vcc.main.bigcqa.QaPoProductActivity">
+
+
+        <TextView
+            android:id="@+id/label_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Remark"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/edit_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:imeOptions="actionNext"
+            android:selectAllOnFocus="true"
+            android:inputType="text"
+            android:minEms="9"
+            android:nextFocusDown="@+id/txt_time"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/label_remark"
+            app:layout_constraintLeft_toRightOf="@+id/label_remark"
+            tools:text="The quick brown fox jumps over the lazy dog. The quick brown fox"/>
+
+        <TextView
+            android:id="@+id/label_po_damage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="PODamage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_remark"/>
+
+        <EditText
+            android:id="@+id/edit_po_damage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:imeOptions="actionDone"
+            android:selectAllOnFocus="true"
+            android:inputType="numberDecimal"
+            android:minEms="4"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/label_po_damage"
+            app:layout_constraintLeft_toRightOf="@+id/label_po_damage"
+            tools:text="0"/>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_po_damage">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/header_item_qapo_product"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="LinearLayoutManager"
+                    tools:listitem="@layout/item_qapo_product"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/border"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

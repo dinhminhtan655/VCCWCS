@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sp_id_khachang">Mã Khách Hàng</string>
+    <string-array name = "aray_sp_list_id">
+        <item> Masan 1</item>
+        <item> Masan 2</item>
+        <item> Masan 3</item>
+        <item> Masan 3</item>
+        <item> Masan 4</item>
+
+    </string-array>
+</resources>

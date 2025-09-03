@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:text="ICode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:text="IName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:text="Supplier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:text="Scan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:text="Move"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:text="Đ/chỉnh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_weight="1"/>
+
+
+</LinearLayout>

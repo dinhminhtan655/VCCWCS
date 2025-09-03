@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.palletcartonweighting.PalletCartonWeighting" />
+
+        <variable
+            name="count"
+            type="Integer" />
+
+        <variable
+            name="weights"
+            type="String" />
+
+        <variable
+            name="weight"
+            type="String" />
+
+        <variable
+            name="editWeight"
+            type="String" />
+
+        <variable
+            name="gross"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="com.wcs.vcc.main.palletcartonweighting.PalletCartonWeightingActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/outline_bottom"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_target_scan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/barcode"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:textCursorDrawable="@null">
+
+                <requestFocus />
+            </EditText>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#444" />
+
+            <TextView
+                android:id="@+id/tv_prev_barcode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:textSize="17sp"
+                tools:text="DO0000123456" />
+
+            <ImageView
+                android:id="@+id/ivCameraScan"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/selector_gray_white"
+                android:scaleType="center"
+                android:src="@drawable/ic_action_image_camera_holo_light"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/label_carton_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CartonID: "
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_pallet_carton_weighting_carton_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="64dp"
+                android:text="@{String.valueOf(item.PalletCartonNumber)}"
+                android:textColor="#444"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_carton_id"
+                app:layout_constraintStart_toEndOf="@id/label_carton_id"
+                tools:text="658254" />
+
+            <TextView
+                android:id="@+id/label_pallet_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="PalletID: "
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/tv_pallet_carton_weighting_carton_id" />
+
+            <TextView
+                android:id="@+id/tv_pallet_carton_weighting_pallet_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="64dp"
+                android:text="@{String.valueOf(item.PalletNumber)}"
+                android:textColor="#444"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_pallet_id"
+                app:layout_constraintStart_toEndOf="@id/label_pallet_id"
+                tools:text="658254" />
+
+            <TextView
+                android:id="@+id/label_carton_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Thùng: "
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@id/textView43" />
+
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{String.format("%d", count)}'
+
+                android:textColor="#FF0000"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_pallet_carton_weighting_pallet_id"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:text="Qty: 123" />
+
+            <TextView
+                android:id="@+id/label_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Kgs: "
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/label_carton_id" />
+
+            <EditText
+                android:id="@+id/tv_pallet_carton_weighting_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+
+                android:maxLength="9"
+                android:minWidth="70dp"
+                android:selectAllOnFocus="true"
+                android:text='@{editWeight}'
+                android:textColor="#FF0000"
+                android:textSize="19sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_weight"
+                app:layout_constraintStart_toEndOf="@id/label_weight"
+                tools:text="658254" />
+
+            <TextView
+                android:id="@+id/label_carton_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Số kgs: "
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_weight"
+                app:layout_constraintEnd_toStartOf="@id/carton_weight" />
+
+            <TextView
+                android:id="@+id/carton_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{weight}'
+                android:textColor="#FF0000"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_weight"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteX="267dp"
+                tools:text="kgs: 123" />
+
+            <TextView
+                android:id="@+id/label_units"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Units: "
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/label_weight" />
+
+            <EditText
+                android:id="@+id/tv_pallet_carton_weighting_units"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="9"
+                android:minWidth="44dp"
+                android:selectAllOnFocus="true"
+                android:text="@{String.valueOf(item.CartonUnits)}"
+                android:textColor="#444"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_units"
+                app:layout_constraintStart_toEndOf="@id/label_units"
+                tools:text="658254" />
+
+            <TextView
+                android:id="@+id/label_gross"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Gross: "
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_units"
+                app:layout_constraintStart_toEndOf="@id/tv_pallet_carton_weighting_units" />
+
+            <EditText
+                android:id="@+id/tv_pallet_carton_weighting_gross"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:maxLength="9"
+                android:minWidth="44dp"
+                android:selectAllOnFocus="true"
+                android:text="@{String.valueOf(item.PalletGrossWeight)}"
+                android:textColor="#444"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_gross"
+                app:layout_constraintStart_toEndOf="@id/label_gross"
+                tools:text="658254" />
+
+            <TextView
+                android:id="@+id/label_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Remark: "
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_pallet_carton_weighting_gross"
+                app:layout_constraintStart_toEndOf="@id/tv_pallet_carton_weighting_gross" />
+
+            <EditText
+                android:id="@+id/tv_pallet_carton_weighting_remark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@{item.PalletRemark}"
+                android:textColor="#444"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_remark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/label_remark"
+                tools:text="658254" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:onClick="addPalletCarton"
+                android:text="Add"
+                app:layout_constraintBaseline_toTopOf="@layout/header_pallet_carton_weighting"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pallet_carton_weighting_remark" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:onClick="updatePalletCarton"
+                android:text="Update"
+                app:layout_constraintBaseline_toBaselineOf="@id/button2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button3"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pallet_carton_weighting_remark"
+                app:layout_constraintVertical_bias="0.666" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:onClick="inventory"
+                android:text="Tồn"
+                app:layout_constraintBaseline_toBaselineOf="@id/button2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/carton_weight"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/button2"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pallet_carton_weighting_remark"
+                app:layout_constraintVertical_bias="0.666" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black" />
+
+        <include
+            android:id="@+id/header_pallet_carton_weighting"
+            layout="@layout/header_pallet_carton_weighting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pallet_carton_weighting"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:listitem="@layout/item_pallet_carton_weighting" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#eee"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:text='@{String.format("%d", count)}'
+                android:textColor="#FF0000"
+                tools:text="Số thùng: 123" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text='@{weights}'
+                android:textAlignment="center"
+                android:textColor="#FF0000"
+                tools:text="Kgs: 123" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text='@{gross}'
+                android:textAlignment="center"
+                android:textColor="#FF0000"
+                tools:text="123" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:padding="4dp"
+                android:text="Remark" />
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:gravity="center_vertical"
+                android:padding="4dp"
+                android:text="Remark" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

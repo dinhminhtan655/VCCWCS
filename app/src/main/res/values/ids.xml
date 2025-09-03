@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="lv_kvs" type="id" />
+    <item name="visible" type="id" />
+    <item name="masked" type="id" />
+    <item name="et_all_target_scan" type="id" />
+    <item name="et_all_barcode" type="id" />
+    <item name="iv_all_camera" type="id" />
+    <item name="et_insert_kvs_note" type="id"/>
+    <item name="rg_insert_kvs_result" type="id"/>
+    <item name="gv_insert_kvs_photo" type="id"/>
+    <item name="iv_insert_kvs_done" type="id"/>
+    <item name="item_kvs_room" type="id"/>
+    <item name="item_kvs_time" type="id"/>
+    <item name="item_kvs_check_by" type="id"/>
+    <item name="item_kvs_result" type="id"/>
+    <item name="item_kvs_remark" type="id"/>
+    <item name="rb_insert_kvs_qualified" type="id"/>
+    <item name="rb_insert_kvs_unqualified" type="id"/>
+    <item name="lv_suppliers_today" type="id" />
+    <item name="iv_all_pre_day" type="id" />
+    <item name="bt_all_choose_date" type="id" />
+    <item name="view" type="id" />
+    <item name="view1" type="id" />
+    <item name="view2" type="id" />
+</resources>

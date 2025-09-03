@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:text="Mã SP"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col2"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Tên SP"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col2"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="S13"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col5"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="S25"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col5"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="L13"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col5"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="L25"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col5"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="L40"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col5"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="O25"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col5"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="BOX"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col5"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:text="NYLON"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col1"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="TL Thực"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/outline_right_bottom"
+        android:layout_width="@dimen/col1"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

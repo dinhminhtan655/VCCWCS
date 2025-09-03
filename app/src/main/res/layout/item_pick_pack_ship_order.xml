@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.packingscan.PickPackShipOrder" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="42dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:padding="4dp"
+                android:textColor="#A00"
+                android:textStyle="bold"
+                android:text="@{item.DispatchingOrderNumber}"
+                tools:text="DO-23123" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:padding="4dp"
+                android:text="@{item.TotalPackages}"
+                tools:text="26119800" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:padding="4dp"
+                android:text="@{item.TotalWeight}"
+                tools:text="43123" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:padding="4dp"
+                android:text="@{item.CustomerClientName}"
+                android:textColor="#00F"
+                android:textStyle="bold"
+                tools:text="ASD-123" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:padding="4dp"
+                android:text="@{item.DispatchingOrderRemark}"
+                tools:text="The quick brown fox jumps over the lazy cat" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center_horizontal"
+                android:padding="4dp"
+                android:text="@{String.valueOf(item.StoreNumber)}"
+                tools:text="0" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

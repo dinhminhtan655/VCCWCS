@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.detailphieu.chuphinh.AttachmentInfo" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+
+        <TextView
+            android:id="@+id/tv_file_name"
+            android:text="@{item.originalFileName}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            tools:text="Tên File"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_file_size"
+            android:text="@{String.valueOf(item.attachmentFileSize)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_file_name"
+            tools:text="Size"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_file_last_modifier"
+            android:text="@{item.attachmentDate}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_file_size"
+            tools:text="Date"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_file_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.attachmentUser}"
+            android:layout_below="@id/tv_file_last_modifier"
+            tools:text="User"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_file_description"
+            android:text="@{item.attachmentDescription}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_file_user"
+            tools:text="Description"
+            android:singleLine="false"
+            android:textSize="16sp"
+            android:maxEms="5"/>
+
+        <ImageView
+            android:id="@+id/img_file"
+            android:layout_width="170dp"
+            android:layout_height="225dp"
+            android:layout_alignRight="@+id/tv_file_description"
+            android:layout_alignParentRight="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrayC"
+            android:layout_below="@+id/img_file"
+            android:layout_marginTop="2dp"/>
+
+
+    </RelativeLayout>
+
+</layout>
+

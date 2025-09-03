@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="42dp"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edShipMentID"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:hint="Shipment ID"></EditText>
+        <EditText
+            android:id="@+id/edVehicel"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:hint="Số xe"></EditText>
+        <EditText
+            android:id="@+id/edDriver"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Tài Xế"></EditText>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="42dp"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edRemark"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:hint="Ghi Chú"></EditText>
+        <Button
+            android:id="@+id/btnShip"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="Ship"></Button>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/header_check_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outline_bottom"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_target_scan"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/barcode"
+            android:paddingEnd="0dp"
+            android:paddingStart="10dp"
+            android:textCursorDrawable="@null">
+            <requestFocus/>
+        </EditText>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#444"/>
+
+        <TextView
+            android:id="@+id/tv_prev_barcode"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingEnd="0dp"
+            android:paddingStart="10dp"
+            android:textSize="17sp"
+            tools:text="TW"/>
+
+        <ImageView
+            android:id="@+id/ivCameraScan"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/selector_gray_white"
+            android:scaleType="center"
+            android:src="@drawable/ic_action_image_camera_holo_light"
+            tools:ignore="ContentDescription"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="42dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvCountOrder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center"
+            android:textColor="#A00"
+            android:textStyle="bold"
+            tools:text="Số Order" />
+
+        <TextView
+            android:id="@+id/tvCartonTotal1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.075"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center"
+            android:textColor="#00F"
+            android:textStyle="bold"
+            tools:text="CartonTotal1 " />
+
+
+        <TextView
+            android:id="@+id/tvCartonTotal2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center"
+            android:textColor="#00F"
+            android:textStyle="bold"
+            tools:text="CartonTotal2" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/header_scan_check_out_carton"
+        layout="@layout/header_scan_check_out_carton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_check_out"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_scan_check_out_carton" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@drawable/shadow"/>
+    </FrameLayout>
+
+</LinearLayout>

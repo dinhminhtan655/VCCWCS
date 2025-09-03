@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.newscanmasan.itemmasan.XdocPackingPickingListOrder" />
+
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@{item.ProductName}"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:background="@drawable/outline_right_bottom"
+                tools:text="Cật heo (S)"
+                android:gravity="start"
+                android:id="@+id/tvNameItemMasan"
+                android:layout_weight="1.4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="@{item.PickingListOrderNumber}"
+                android:textColor="#3F51B5"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:background="@drawable/outline_right_bottom"
+                tools:text="OR-122"
+                android:gravity="start"
+                android:id="@+id/tvXdocPickingListOrderNumber"
+                android:layout_weight="1"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="@{item.LotNumber}"
+                android:textColor="#F44336"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:background="@drawable/outline_right_bottom"
+                tools:text="03022101"
+                android:gravity="start"
+                android:id="@+id/tvLot"
+                android:layout_weight="1.4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:text="@{String.valueOf(item.Qty)}"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:text="7"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:background="@drawable/outline_bottom_dark"
+                android:id="@+id/tvQuantityItemMasan"
+                android:layout_weight="0.6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</layout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal">
+
+    <TextView
+        android:text="Mã Pallet"
+        android:id="@+id/tvPalletCode"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+        android:background="@drawable/border_black_color_label"
+        android:padding="@dimen/all_margin_5dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:text="Scan bởi"
+        android:id="@+id/tvUsername"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+        android:background="@drawable/border_black_color_label"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+    <TextView
+        android:text="Vào Lúc"
+        android:id="@+id/tvAtTime"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+        android:background="@drawable/border_black_color_label"
+        android:textColor="@color/black"
+        android:padding="@dimen/all_margin_5dp"
+        android:gravity="right"/>
+
+</LinearLayout>

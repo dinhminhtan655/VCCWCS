@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.wcs.vcc.main.capdau.DistributionOrderView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/label_distribution_order_truck_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số xe: "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_distribution_order_truck_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@{data.TruckNumber}"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_truck_number"
+            app:layout_constraintStart_toEndOf="@id/label_distribution_order_truck_number"
+            tools:text="Số xe" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Số phiếu: "
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tv_distribution_order_truck_number" />
+
+        <TextView
+            android:id="@+id/tv_distribution_order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.DistributionOrderNumber}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/label_distribution_order_number"
+            tools:text="Số phiếu" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_driver_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Tên TX: "
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_distribution_order_truck_number" />
+
+        <TextView
+            android:id="@+id/tv_distribution_order_driver_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.DriverName}"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_driver_name"
+            app:layout_constraintStart_toStartOf="@id/tv_distribution_order_truck_number"
+            tools:text="Tên TX" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ngày: "
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_distribution_order_driver_name" />
+
+        <TextView
+            android:id="@+id/tv_distribution_order_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.TimeIn}"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_date"
+            app:layout_constraintStart_toStartOf="@id/tv_distribution_order_truck_number"
+            tools:text="Ngày" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_kilometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Km: "
+            android:textColor="#00F"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_distribution_order_date" />
+
+        <EditText
+            android:id="@+id/tv_distribution_order_kilometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="5"
+            android:text="@{String.valueOf(data.Kilometer)}"
+            android:textColor="#00F"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_kilometer"
+            app:layout_constraintStart_toStartOf="@id/tv_distribution_order_truck_number"
+            tools:text="Km" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Lít"
+            android:textColor="#00F"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_distribution_order_kilometer" />
+
+        <EditText
+            android:id="@+id/tv_distribution_order_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="5"
+            android:text="@{String.valueOf(data.Quantity)}"
+            android:textColor="#00F"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_quantity"
+            app:layout_constraintStart_toStartOf="@id/tv_distribution_order_truck_number"
+            tools:text="Lít" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ghi chú"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/label_distribution_order_quantity" />
+
+        <EditText
+            android:id="@+id/tv_distribution_order_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:minEms="10"
+            android:text="@{data.DistributionRemark}"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_remark"
+            app:layout_constraintStart_toStartOf="@id/tv_distribution_order_truck_number"
+            tools:text="Ghi chú" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_user_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Người cho xe ra: "
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/label_distribution_order_remark" />
+
+        <TextView
+            android:id="@+id/tv_distribution_order_user_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{data.UserCheckOut}"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_user_checkout"
+            app:layout_constraintStart_toEndOf="@id/label_distribution_order_user_checkout"
+            tools:text="Ghi chú" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_is_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Check out: "
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_distribution_order_user_checkout" />
+
+        <CheckBox
+            android:id="@+id/tv_distribution_order_is_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:checked="@{data.IsCheckOut}"
+            android:enabled="false"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_is_checkout"
+            app:layout_constraintStart_toEndOf="@id/label_distribution_order_is_checkout" />
+
+        <Button
+            android:id="@+id/bt_sign"
+            android:layout_width="wrap_content"
+            android:text="Ký"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_is_checkout"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

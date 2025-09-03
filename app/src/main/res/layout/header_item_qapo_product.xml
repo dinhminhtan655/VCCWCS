@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col1"
+        android:layout_height="wrap_content"
+        android:text="No."/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col2"
+        android:layout_height="wrap_content"
+        android:text="Name"/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col3"
+        android:layout_height="wrap_content"
+        android:text="Qty"/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col4"
+        android:layout_height="wrap_content"
+        android:text="Qty QA"/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col5"
+        android:layout_height="wrap_content"
+        android:text="Hư NT"/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col6"
+        android:layout_height="wrap_content"
+        android:text="Hư nặng"/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col7"
+        android:layout_height="wrap_content"
+        android:text="Hư nhẹ"/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col8"
+        android:layout_height="wrap_content"
+        android:text="% lỗi"/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col9"
+        android:layout_height="wrap_content"
+        android:text="% trừ"/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col10"
+        android:layout_height="wrap_content"
+        android:text="Unit"/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col11"
+        android:layout_height="wrap_content"
+        android:text="Remark"/>
+
+    <TextView
+        style="@style/HeaderItemGrid"
+        android:layout_width="@dimen/col12"
+        android:layout_height="wrap_content"
+        android:text="QA"/>
+</LinearLayout>

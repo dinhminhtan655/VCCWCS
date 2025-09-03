@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="storeNumber"
+            type="int" />
+
+        <variable
+            name="clientName"
+            type="String" />
+
+        <variable
+            name="orderNumber"
+            type="String" />
+
+        <variable
+            name="poNumber"
+            type="String" />
+
+        <variable
+            name="nPacks"
+            type="int" />
+
+        <variable
+            name="countPacks"
+            type="int" />
+
+        <variable
+            name="nWeight"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text='@{"Store: " + storeNumber}'
+                    tools:text="StoreNumber" />
+
+                <TextView
+                    android:id="@+id/tvNextStoreNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="StoreNumber" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@{clientName}"
+                    android:textColor="#00F"
+                    android:textStyle="bold"
+                    tools:text="CustomerClientName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{orderNumber}"
+                    android:textColor="#A00"
+                    android:textStyle="bold"
+                    tools:text="DO" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@{poNumber}"
+                    tools:text="CUST_PO_NUMBER" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#000" />
+
+        <include layout="@layout/scan_barcode" />
+
+        <include
+            layout="@layout/header_pick_pack_ship_carton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/outline_bottom">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_pick_pack_ship_carton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_pick_pack_ship_carton" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/shadow" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:minHeight="42dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center_vertical"
+                android:padding="4dp"
+                android:text='@{"Số thùng: " + countPacks}'
+                android:textColor="#A00"
+                android:textStyle="bold"
+                tools:text="Số thùng: " />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center_vertical"
+                android:padding="4dp"
+                android:text='@{"Số gói: " + nPacks}'
+                android:textColor="#A00"
+                android:textStyle="bold"
+                tools:text="Số gói: " />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center_vertical"
+                android:padding="4dp"
+                android:text='@{"Số kí: " + nWeight}'
+                android:textColor="#00F"
+                android:textStyle="bold"
+                tools:text="Số kí: " />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center_vertical"
+                android:padding="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

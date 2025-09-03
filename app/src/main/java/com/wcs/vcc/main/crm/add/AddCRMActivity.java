@@ -1,0 +1,1032 @@
+package com.wcs.vcc.main.crm.add;
+
+import android.Manifest;
+import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.CalendarContract;
+import android.provider.CalendarContract.Calendars;
+import android.provider.CalendarContract.Events;
+import android.provider.CalendarContract.Reminders;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.appcompat.widget.SwitchCompat;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupMenu;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
+import com.wcs.wcs.R;import com.wcs.vcc.main.BaseActivity;
+import com.wcs.vcc.main.vo.Group;
+import com.wcs.vcc.main.crm.CRMActivity;
+import com.wcs.vcc.main.crm.GridViewInvite;
+import com.wcs.vcc.main.crm.Guest;
+import com.wcs.vcc.main.crm.InviteUserAdapter;
+import com.wcs.vcc.main.crm.LabelAdapter;
+import com.wcs.vcc.main.crm.ListLabel;
+import com.wcs.vcc.main.crm.detail.MeetingDetail;
+import com.wcs.vcc.main.opportunity.Customer;
+import com.wcs.vcc.main.opportunity.ListCustomerAdapter;
+import com.wcs.vcc.main.phieuhomnay.giaoviec.EmployeeInfo;
+import com.wcs.vcc.main.technical.assign.EmployeePresentAdapter;
+import com.wcs.vcc.preferences.LoginPref;
+import com.wcs.vcc.api.EmployeePresentParameter;
+import com.wcs.vcc.api.MeetingParameter;
+import com.wcs.vcc.api.MeetingUserParameter;
+import com.wcs.vcc.api.MyRetrofit;
+import com.wcs.vcc.api.NoInternet;
+import com.wcs.vcc.api.RetrofitError;
+import com.wcs.vcc.utilities.Utilities;
+import com.wcs.vcc.utilities.WifiHelper;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
+
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
+
+public class AddCRMActivity extends BaseActivity
+        implements CompoundButton.OnCheckedChangeListener,
+        View.OnClickListener, AdapterView.OnItemSelectedListener,
+        View.OnFocusChangeListener, AdapterView.OnItemClickListener {
+    public static final int PLACE_PICKER_REQUEST = 100;
+    private static final String TAG = AddCRMActivity.class.getSimpleName();
+    private AppCompatSpinner labelSpinner;
+    private Button startDateView;
+    private Button endDateView;
+    private Button startTimeView;
+    private Button endTimeView;
+    private SwitchCompat allDaySwitchCompat;
+    private Calendar calendarEnd;
+    private Calendar calendarStart;
+    private EditText titleView;
+    private EditText locationView;
+    private EditText descriptionView;
+    private AppCompatAutoCompleteTextView customerIdView;
+    private LabelAdapter labelAdapter;
+    private String label;
+    private Button inviteesButton;
+    private View panelInviteesView;
+    private ImageView closeInviteesButton;
+    private ListCustomerAdapter customerAdapter;
+    private AppCompatAutoCompleteTextView inviteesEditText;
+    private EmployeePresentAdapter employeeAdapter;
+    private String username;
+    private StringBuilder employeeBuilder = new StringBuilder();
+    private GridView containerInvitees;
+    private ArrayList<EmployeeInfo> inviteesUser;
+    private InviteUserAdapter inviteUserAdapter;
+    private int meetingId = -1;
+    private long meetingLocalId = -1;
+    private long calendarId;
+    private Button addReminderButton;
+    private LinearLayout containerReminder;
+    private ArrayList<Reminder> listReminderView = new ArrayList<>();
+    private ProgressDialog dialog;
+    private int[] reminderValues;
+    private int timeReminderPos = 2;
+    private int typeReminderPos;
+    private int choose = 0;
+    private Button answerButton;
+    private PopupMenu answerMenu;
+    private String timeZoneId;
+    private int storeId;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_crm);
+
+        storeId = LoginPref.getStoreId(this);
+
+        initial();
+    }
+
+    private void initial() {
+        mapView();
+        setListener();
+
+        final Intent intent = getIntent();
+        if (intent != null)
+            calendarId = intent.getLongExtra(Calendars._ID, -1);
+        if (calendarId == -1)
+            initCalendar();
+        timeZoneId = TimeZone.getDefault().getID();
+        reminderValues = getResources().getIntArray(R.array.reminder_values);
+
+        username = LoginPref.getUsername(this);
+
+        employeeBuilder.append(username);
+
+        calendarStart = Calendar.getInstance();
+        calendarEnd = Calendar.getInstance();
+        startDateView.setText(formatterDate(calendarStart));
+        endDateView.setText(formatterDate(calendarEnd));
+        startTimeView.setText(formatterTime(calendarStart));
+        endTimeView.setText(formatterTime(calendarEnd));
+        closeInviteesButton.setClickable(true);
+
+        inviteesUser = new ArrayList<>();
+        inviteUserAdapter = new InviteUserAdapter(this, inviteesUser);
+        containerInvitees.setAdapter(inviteUserAdapter);
+
+        employeeAdapter = new EmployeePresentAdapter(this, new ArrayList<EmployeeInfo>());
+        inviteesEditText.setAdapter(employeeAdapter);
+
+        customerAdapter = new ListCustomerAdapter(this, new ArrayList<Customer>());
+        customerIdView.setAdapter(customerAdapter);
+
+        labelAdapter = new LabelAdapter(this, new ListLabel().getListLabel());
+        labelSpinner.setAdapter(labelAdapter);
+
+        getListCustomer();
+        getEmployeeID();
+
+        if (intent != null) {
+            if (intent.hasExtra("ID")) {
+                meetingId = intent.getIntExtra("ID", -1);
+                getMeetingDetail(meetingId);
+                getMeetingGuest(meetingId);
+            }
+            if (getIntent().hasExtra("CONFIRM")) {
+                getLocalIdFromServer(username, meetingId);
+                answerButton.setVisibility(View.VISIBLE);
+                answerMenu = new PopupMenu(this, answerButton);
+                answerMenu.inflate(R.menu.choose_meeting);
+                answerMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if (item.getItemId() == R.id.action_accept)
+                            choose = 1;
+                        else choose = -1;
+                        return true;
+                    }
+                });
+            }
+            if (intent.hasExtra("MEETING_LOCAL_ID")) {
+                meetingLocalId = intent.getIntExtra("MEETING_LOCAL_ID", -1);
+                if (!isExistEvent())
+                    meetingLocalId = -1;
+                getReminder();
+            }
+        }
+    }
+
+    private void getReminder() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        Cursor cursor = getContentResolver().query(Reminders.CONTENT_URI,
+                new String[]{Reminders.MINUTES,
+                        Reminders.METHOD}, Reminders.EVENT_ID + " = ?",
+                new String[]{Long.toString(meetingLocalId)},
+                null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                int minute = cursor.getInt(0);
+                int method = cursor.getInt(1);
+                timeReminderPos = Arrays.binarySearch(reminderValues, minute);
+                typeReminderPos = 0;
+                addReminderView();
+
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+
+    }
+
+
+    private void mapView() {
+        titleView = (EditText) findViewById(R.id.add_crm_et_title);
+        locationView = (EditText) findViewById(R.id.add_crm_et_location);
+        descriptionView = (EditText) findViewById(R.id.add_crm_et_description);
+        customerIdView = (AppCompatAutoCompleteTextView) findViewById(R.id.add_crm_et_customer_id);
+        startDateView = (Button) findViewById(R.id.add_crm_bt_start_date);
+        endDateView = (Button) findViewById(R.id.add_crm_bt_end_date);
+        startTimeView = (Button) findViewById(R.id.add_crm_bt_start_time);
+        endTimeView = (Button) findViewById(R.id.add_crm_bt_end_time);
+        inviteesButton = (Button) findViewById(R.id.add_crm_bt_invitees);
+        allDaySwitchCompat = (SwitchCompat) findViewById(R.id.add_crm_switch_all_date);
+        labelSpinner = (AppCompatSpinner) findViewById(R.id.add_crm_spinner_label);
+        panelInviteesView = findViewById(R.id.add_crm_container_invitees);
+        closeInviteesButton = (ImageView) findViewById(R.id.close_invitees);
+        inviteesEditText = (AppCompatAutoCompleteTextView) findViewById(R.id.add_crm_et_invite);
+        containerInvitees = (GridViewInvite) panelInviteesView.findViewById(R.id.container_invitees);
+        containerReminder = (LinearLayout) findViewById(R.id.container_reminder);
+        addReminderButton = (Button) findViewById(R.id.add_crm_add_reminder);
+        answerButton = (Button) findViewById(R.id.add_crm_answer);
+    }
+
+    private void setListener() {
+        allDaySwitchCompat.setOnCheckedChangeListener(this);
+        labelSpinner.setOnItemSelectedListener(this);
+        startDateView.setOnClickListener(this);
+        endDateView.setOnClickListener(this);
+        startTimeView.setOnClickListener(this);
+        endTimeView.setOnClickListener(this);
+        inviteesButton.setOnClickListener(this);
+        addReminderButton.setOnClickListener(this);
+        answerButton.setOnClickListener(this);
+        closeInviteesButton.setOnClickListener(this);
+        customerIdView.setOnFocusChangeListener(this);
+        customerIdView.setOnClickListener(this);
+        inviteesEditText.setOnFocusChangeListener(this);
+        inviteesEditText.setOnClickListener(this);
+        inviteesEditText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                EmployeeInfo item = employeeAdapter.getItem(position);
+                boolean isExist = false;
+                for (EmployeeInfo info : inviteesUser) {
+                    if (info.EmployeeCode == item.EmployeeCode) {
+                        isExist = true;
+                        break;
+                    }
+                }
+                if (!isExist) {
+                    inviteesUser.add(item);
+                    inviteUserAdapter.notifyDataSetChanged();
+                }
+
+                inviteesEditText.setText("");
+
+            }
+        });
+        containerInvitees.setOnItemClickListener(this);
+
+    }
+
+    private void getMeetingDetail(int meetingId) {
+        final ProgressDialog dialog = Utilities.getProgressDialog(this, getString(R.string.loading_data));
+        dialog.show();
+        if (!WifiHelper.isConnected(this)) {
+            RetrofitError.errorNoAction(this, new NoInternet(), TAG, snackBarView);
+            dismissDialog(dialog);
+            return;
+        }
+        MyRetrofit.initRequest(this)
+                .getMeetingDetail(meetingId)
+                .enqueue(new Callback<List<MeetingDetail>>() {
+                    @Override
+                    public void onResponse(Response<List<MeetingDetail>> response, Retrofit retrofit) {
+                        if (response.isSuccess() && response.body() != null) {
+                            updateUI(response.body());
+                            dismissDialog(dialog);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        dismissDialog(dialog);
+                        RetrofitError.errorNoAction(getApplicationContext(), t, BaseActivity.TAG, snackBarView);
+                    }
+                });
+    }
+
+    private void getLocalIdFromServer(String user, int meetingId) {
+        if (!WifiHelper.isConnected(this)) {
+            RetrofitError.errorNoAction(this, new NoInternet(), TAG, snackBarView);
+            return;
+        }
+        MyRetrofit.initRequest(this)
+                .getMeetingGuest(new MeetingUserParameter(user, meetingId))
+                .enqueue(new Callback<List<Guest>>() {
+                    @Override
+                    public void onResponse(Response<List<Guest>> response, Retrofit retrofit) {
+                        List<Guest> body = response.body();
+                        if (response.isSuccess() && body != null && body.size() > 0) {
+                            meetingLocalId = body.get(0).getMeetingLocalID();
+                            if (!isExistEvent())
+                                meetingLocalId = -1;
+                            getReminder();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        RetrofitError.errorNoAction(getApplicationContext(), t, BaseActivity.TAG, snackBarView);
+                    }
+                });
+    }
+
+    private void getMeetingGuest(int meetingId) {
+        if (!WifiHelper.isConnected(this)) {
+            RetrofitError.errorNoAction(this, new NoInternet(), TAG, snackBarView);
+            return;
+        }
+        MyRetrofit.initRequest(this)
+                .getMeetingGuest(new MeetingUserParameter("", meetingId))
+                .enqueue(new Callback<List<Guest>>() {
+                    @Override
+                    public void onResponse(Response<List<Guest>> response, Retrofit retrofit) {
+                        List<Guest> body = response.body();
+                        if (response.isSuccess() && body != null && body.size() > 0) {
+                            updateInvitees(0);
+                            for (Guest guest : body) {
+                                String guestId = guest.getUserId().trim();
+                                if (username.equals(guestId))
+                                    continue;
+                                String[] splitName = guest.getName().split(" ");
+                                EmployeeInfo info = new EmployeeInfo(parserInt(guestId), splitName[splitName.length - 1]);
+                                inviteesUser.add(info);
+                            }
+                            inviteUserAdapter.notifyDataSetChanged();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        RetrofitError.errorNoAction(getApplicationContext(), t, BaseActivity.TAG, snackBarView);
+                    }
+                });
+    }
+
+    private void updateUI(List<MeetingDetail> body) {
+        if (body.size() > 0) {
+            MeetingDetail item = body.get(0);
+            titleView.setText(item.getSubjectName());
+            calendarStart.setTimeInMillis(Utilities.getMillisecondFromDate(item.getStartTime()));
+            calendarEnd.setTimeInMillis(Utilities.getMillisecondFromDate(item.getEndTime()));
+            startDateView.setText(formatterDate(calendarStart));
+            endDateView.setText(formatterDate(calendarEnd));
+            startTimeView.setText(formatterTime(calendarStart));
+            endTimeView.setText(formatterTime(calendarEnd));
+            locationView.setText(item.getLocation());
+            descriptionView.setText(item.getDescription());
+            customerIdView.setText(String.format(Locale.getDefault(), "%d", item.getCustomerID()));
+            labelSpinner.setSelection(new ListLabel().getPosition(item.getLabel()));
+        }
+    }
+
+    private void getListCustomer() {
+        if (!WifiHelper.isConnected(this)) {
+            RetrofitError.errorNoAction(this, new NoInternet(), TAG, snackBarView);
+            return;
+        }
+        MyRetrofit.initRequest(this)
+                .getListCustomer((byte) 1)
+                .enqueue(new Callback<List<Customer>>() {
+                    @Override
+                    public void onResponse(Response<List<Customer>> response, Retrofit retrofit) {
+                        if (response.isSuccess() && response.body() != null) {
+                            customerAdapter.clear();
+                            customerAdapter.addAll(response.body());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        RetrofitError.errorNoAction(getApplicationContext(), t, BaseActivity.TAG, snackBarView);
+                    }
+                });
+    }
+
+    public void getEmployeeID() {
+        String position;
+        int department;
+        if (LoginPref.getPositionGroup(getApplicationContext()).equals(Group.TECHNICAL)) {
+            position = "2";
+            department = 4;
+        } else {
+            position = "0";
+            department = 2;
+        }
+        MyRetrofit.initRequest(this).getEmployeeID(new EmployeePresentParameter(department, position, storeId))
+                .enqueue(new Callback<List<EmployeeInfo>>() {
+                    @Override
+                    public void onResponse(Response<List<EmployeeInfo>> response, Retrofit retrofit) {
+                        if (response.isSuccess() && response.body() != null) {
+                            employeeAdapter.clear();
+                            employeeAdapter.addAll(response.body());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                    }
+                });
+    }
+
+    public void cancel(View view) {
+        onBackPressed();
+    }
+
+    public void save(View view) {
+
+        if (compareCalendar(calendarStart, calendarEnd) == 1) {
+            Toast.makeText(getApplicationContext(), getString(R.string.error_end_time_occur_before_start_time), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (titleView.length() == 0) {
+            Toast.makeText(getApplicationContext(), getString(R.string.this_field_not_empty), Toast.LENGTH_SHORT).show();
+            titleView.requestFocus();
+            return;
+        }
+        MeetingParameter parameter = new MeetingParameter(
+                titleView.getText().toString(),
+                locationView.getText().toString(),
+                descriptionView.getText().toString(),
+                parserInt(customerIdView.getText().toString()),
+                LoginPref.getUsername(getApplicationContext()),
+                Utilities.formatDateTime_yyyyMMddHHmmssFromMili(calendarStart.getTimeInMillis()),
+                Utilities.formatDateTime_yyyyMMddHHmmssFromMili(calendarEnd.getTimeInMillis()),
+                label,
+                allDaySwitchCompat.isChecked()
+        );
+        dialog = Utilities.getProgressDialog(this, getString(R.string.saving));
+        dialog.show();
+        meetingLocalId = addLocalEvent();
+        deleteAllReminder();
+
+        parameter.setMeetingLocalId(meetingLocalId);
+
+        if (meetingId == -1) addMeeting(parameter);
+        else if (choose != 0) {
+            MeetingUserParameter param = new MeetingUserParameter(
+                    username,
+                    meetingId,
+                    (int) meetingLocalId,
+                    choose
+            );
+            updateMeetingUsers(param);
+        } else {
+            parameter.setMeetingId(meetingId);
+            updateMeeting(parameter);
+        }
+    }
+
+    private long addLocalEvent() {
+        long eventId;
+        long startMillis;
+        long endMillis;
+        startMillis = calendarStart.getTimeInMillis();
+        endMillis = calendarEnd.getTimeInMillis();
+
+        ContentResolver cr = getContentResolver();
+        ContentValues values = new ContentValues();
+        values.put(Events.CALENDAR_ID, calendarId);
+        values.put(Events.DTSTART, startMillis);
+        values.put(Events.DTEND, endMillis);
+        values.put(Events.TITLE, titleView.getText().toString());
+        values.put(Events.DESCRIPTION, descriptionView.getText().toString());
+        values.put(Events.EVENT_LOCATION, locationView.getText().toString());
+        values.put(Events.EVENT_TIMEZONE, timeZoneId);
+        values.put(Events.ALL_DAY, allDaySwitchCompat.isChecked() ? 1 : 0);
+        values.put(Events.HAS_ALARM, 1);
+        values.put(Events.ACCESS_LEVEL, Events.ACCESS_PRIVATE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            return -1;
+        }
+        if (meetingLocalId != -1) {
+            Uri uri = ContentUris.withAppendedId(Events.CONTENT_URI, meetingLocalId);
+            eventId = cr.update(uri, values, null, null) > 0 ? meetingLocalId : -1;
+        } else {
+            Uri uri = cr.insert(Events.CONTENT_URI, values);
+            assert uri != null;
+            eventId = Long.parseLong(uri.getLastPathSegment());
+        }
+        return eventId;
+    }
+
+    private void deleteAllReminder() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        int delete = getContentResolver().delete(Reminders.CONTENT_URI, Reminders.EVENT_ID + " = ?", new String[]{Long.toString(meetingLocalId)});
+        Log.d(TAG, "deleteAllReminder() returned: " + delete);
+        addReminder();
+    }
+
+    private void addReminder() {
+        for (Reminder reminder : listReminderView) {
+            ContentResolver cr = getContentResolver();
+            ContentValues values = new ContentValues();
+            int minute = reminderValues[reminder.time.getSelectedItemPosition()];
+            int method = reminder.type.getSelectedItemPosition() * 4;
+            Log.d(TAG, "addReminder() returned: " + minute + " ~ " + method);
+            values.put(Reminders.MINUTES, minute);
+            values.put(Reminders.EVENT_ID, meetingLocalId);
+            values.put(Reminders.METHOD, Reminders.METHOD_ALERT);
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+
+                return;
+            }
+            Uri uri = cr.insert(Reminders.CONTENT_URI, values);
+        }
+    }
+
+
+    private boolean isExistEvent() {
+        boolean isExist = false;
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            return false;
+        }
+        Cursor cursor = getContentResolver().query(Events.CONTENT_URI,
+                new String[]{Events._ID},
+                Events.CALENDAR_ID + " = ? AND " +
+                        Events._ID + " = ?",
+                new String[]{Long.toString(calendarId), Long.toString(meetingLocalId)},
+                null);
+        if (cursor != null) {
+            isExist = cursor.moveToFirst();
+            cursor.close();
+        }
+        return isExist;
+    }
+
+    private void addMeeting(final MeetingParameter parameter) {
+
+
+        if (!WifiHelper.isConnected(this)) {
+            dismissDialog(dialog);
+            RetrofitError.errorNoAction(this, new NoInternet(), TAG, snackBarView);
+            return;
+        }
+        MyRetrofit.initRequest(this)
+                .addMeeting(parameter)
+                .enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Response<String> response, Retrofit retrofit) {
+                        if (response.isSuccess() && response.body() != null) {
+
+                            meetingId = parserInt(response.body());
+                            for (EmployeeInfo info : inviteesUser)
+                                employeeBuilder.append(",").append(info.EmployeeCode);
+
+                            MeetingUserParameter meetingUserParameter = new MeetingUserParameter(
+                                    false,
+                                    username,
+                                    String.format("(%s)", employeeBuilder.toString()),
+                                    meetingId
+                            );
+                            addMeetingUsers(meetingUserParameter);
+
+                        } else {
+                            dismissDialog(dialog);
+                            Toast.makeText(getApplicationContext(), R.string.failed, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        dismissDialog(dialog);
+                        RetrofitError.errorNoAction(getApplicationContext(), t, BaseActivity.TAG, snackBarView);
+                    }
+                });
+    }
+
+    private void updateMeeting(MeetingParameter parameter) {
+
+
+        if (!WifiHelper.isConnected(this)) {
+            dismissDialog(dialog);
+            RetrofitError.errorNoAction(this, new NoInternet(), TAG, snackBarView);
+            return;
+        }
+        MyRetrofit.initRequest(this)
+                .updateMeeting(parameter)
+                .enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Response<String> response, Retrofit retrofit) {
+                        if (response.isSuccess() && response.body() != null) {
+
+                            for (EmployeeInfo info : inviteesUser)
+                                employeeBuilder.append(",").append(info.getEmployeeID());
+
+                            MeetingUserParameter meetingUserParameter = new MeetingUserParameter(
+                                    false,
+                                    username,
+                                    String.format("(%s)", employeeBuilder.toString()),
+                                    meetingId
+                            );
+                            addMeetingUsers(meetingUserParameter);
+
+                        } else {
+                            dismissDialog(dialog);
+                            Toast.makeText(getApplicationContext(), R.string.failed, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        dismissDialog(dialog);
+                        RetrofitError.errorNoAction(getApplicationContext(), t, BaseActivity.TAG, snackBarView);
+                    }
+                });
+    }
+
+    private void addMeetingUsers(MeetingUserParameter parameter) {
+        if (!WifiHelper.isConnected(this)) {
+            dismissDialog(dialog);
+            RetrofitError.errorNoAction(this, new NoInternet(), TAG, snackBarView);
+            return;
+        }
+        MyRetrofit.initRequest(this)
+                .addMeetingUsers(parameter)
+                .enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Response<String> response, Retrofit retrofit) {
+                        if (response.isSuccess() && response.body() != null) {
+                            MeetingUserParameter param = new MeetingUserParameter(
+                                    username,
+                                    meetingId,
+                                    (int) meetingLocalId,
+                                    1
+                            );
+                            updateMeetingUsers(param);
+                        } else
+                            Toast.makeText(getApplicationContext(), R.string.failed, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        dismissDialog(dialog);
+                        RetrofitError.errorNoAction(getApplicationContext(), t, BaseActivity.TAG, snackBarView);
+                    }
+                });
+    }
+
+    private void updateMeetingUsers(MeetingUserParameter parameter) {
+        if (!WifiHelper.isConnected(this)) {
+            dismissDialog(dialog);
+            RetrofitError.errorNoAction(this, new NoInternet(), TAG, snackBarView);
+            return;
+        }
+        MyRetrofit.initRequest(this)
+                .updateMeetingUsers(parameter)
+                .enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Response<String> response, Retrofit retrofit) {
+                        if (response.isSuccess() && response.body() != null) {
+
+                            dismissDialog(dialog);
+                            Toast.makeText(getApplicationContext(), R.string.success, Toast.LENGTH_SHORT).show();
+                            onBackPressed();
+                        } else
+                            Toast.makeText(getApplicationContext(), R.string.failed, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        dismissDialog(dialog);
+                        RetrofitError.errorNoAction(getApplicationContext(), t, BaseActivity.TAG, snackBarView);
+                    }
+                });
+    }
+
+    public void map(View view) {
+
+        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+        try {
+            startActivityForResult(builder.build(this), PLACE_PICKER_REQUEST);
+        } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    private void switchAllDay(boolean notAllDay) {
+
+        startTimeView.setEnabled(notAllDay);
+        endTimeView.setEnabled(notAllDay);
+        if (notAllDay) {
+            startTimeView.setText(formatterTime(calendarStart));
+            endTimeView.setText(formatterTime(calendarEnd));
+        } else {
+            startTimeView.setText(getString(R.string.start_time_of_date));
+            endTimeView.setText(getString(R.string.start_time_of_date));
+        }
+    }
+
+    private void pickStartDate() {
+        final int yearNow = calendarStart.get(Calendar.YEAR);
+        final int monthOfYearNow = calendarStart.get(Calendar.MONTH);
+        final int dayOfMonthNow = calendarStart.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePicker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                calendarStart.set(year, monthOfYear, dayOfMonth);
+                startDateView.setText(formatterDate(calendarStart));
+
+                if (calendarStart.compareTo(calendarEnd) == 1) {
+                    calendarEnd.setTimeInMillis(calendarStart.getTimeInMillis());
+                    endDateView.setText(formatterDate(calendarEnd));
+                }
+
+            }
+        }, yearNow, monthOfYearNow, dayOfMonthNow);
+        datePicker.show();
+    }
+
+    private void pickEndDate() {
+        final int yearNow = calendarEnd.get(Calendar.YEAR);
+        final int monthOfYearNow = calendarEnd.get(Calendar.MONTH);
+        final int dayOfMonthNow = calendarEnd.get(Calendar.DAY_OF_MONTH);
+        final DatePickerDialog datePicker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                calendarEnd.set(year, monthOfYear, dayOfMonth);
+                endDateView.setText(formatterDate(calendarEnd));
+
+                if (calendarStart.compareTo(calendarEnd) == 1) {
+                    calendarStart.setTimeInMillis(calendarEnd.getTimeInMillis());
+                    startDateView.setText(formatterDate(calendarStart));
+                }
+
+            }
+        }, yearNow, monthOfYearNow, dayOfMonthNow);
+        datePicker.show();
+    }
+
+    private void pickStartTime() {
+        int hour = calendarStart.get(Calendar.HOUR_OF_DAY);
+        int minute = calendarStart.get(Calendar.MINUTE);
+        TimePickerDialog timePicker = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+                setTimeCalendar(calendarStart, hourOfDay, minute);
+                startTimeView.setText(formatterTime(calendarStart));
+
+                if (calendarStart.compareTo(calendarEnd) == 1) {
+                    calendarEnd.setTimeInMillis(calendarStart.getTimeInMillis());
+                    endTimeView.setText(formatterTime(calendarEnd));
+                }
+
+            }
+        }, hour, minute, true);
+        timePicker.show();
+    }
+
+    private void pickEndTime() {
+        int hour = calendarEnd.get(Calendar.HOUR_OF_DAY);
+        int minute = calendarEnd.get(Calendar.MINUTE);
+        TimePickerDialog timePicker = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+                setTimeCalendar(calendarEnd, hourOfDay, minute);
+                endTimeView.setText(formatterTime(calendarEnd));
+
+                if (calendarStart.compareTo(calendarEnd) == 1) {
+                    calendarStart.setTimeInMillis(calendarEnd.getTimeInMillis());
+                    startTimeView.setText(formatterTime(calendarStart));
+                }
+
+            }
+        }, hour, minute, true);
+        timePicker.show();
+    }
+
+    private void setTimeCalendar(Calendar calendar, int hourOfDay, int minute) {
+        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        calendar.set(Calendar.MINUTE, minute);
+    }
+
+    private String formatterDate(Calendar calendar) {
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE, dd-MM-yyy", Locale.getDefault());
+        return formatter.format(calendar.getTime());
+    }
+
+    private String formatterTime(Calendar calendar) {
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        return formatter.format(calendar.getTime());
+    }
+
+    private int compareCalendar(Calendar first, Calendar second) {
+        int division = 60000;
+        if (allDaySwitchCompat.isChecked())
+            division *= 24 * 60;
+        long firstMinute = first.getTimeInMillis() / division;
+        long secondMinute = second.getTimeInMillis() / division;
+        return firstMinute > secondMinute ? 1 : -1;
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        switchAllDay(!isChecked);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == startDateView)
+            pickStartDate();
+        else if (v == endDateView)
+            pickEndDate();
+        else if (v == startTimeView)
+            pickStartTime();
+        else if (v == endTimeView)
+            pickEndTime();
+        else if (v == inviteesButton)
+            updateInvitees(0);
+        else if (v == closeInviteesButton)
+            updateInvitees(1);
+        else if (v == customerIdView)
+            customerIdView.showDropDown();
+        else if (v == inviteesEditText)
+            inviteesEditText.showDropDown();
+        else if (v == addReminderButton) {
+            addReminderView();
+        } else if (v == answerButton) {
+            if (answerMenu != null)
+                answerMenu.show();
+        }
+    }
+
+    private void addReminderView() {
+        if (listReminderView.size() >= 0 && listReminderView.size() <= 4) {
+            Reminder reminder = new Reminder();
+            reminder.container = LayoutInflater.from(this).inflate(R.layout.item_reminder, null);
+            reminder.time = (AppCompatSpinner) reminder.container.findViewById(R.id.time_reminder);
+            reminder.type = (AppCompatSpinner) reminder.container.findViewById(R.id.type_reminder);
+            reminder.time.setSelection(timeReminderPos);
+            reminder.type.setSelection(typeReminderPos);
+            Arrays.binarySearch(getResources().getStringArray(R.array.reminder), "");
+
+
+            reminder.remove = (ImageView) reminder.container.findViewById(R.id.remove_reminder);
+            reminder.remove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listReminderView.size() == 5)
+                        addReminderButton.setVisibility(View.VISIBLE);
+                    Reminder tag = (Reminder) v.getTag();
+                    containerReminder.removeView(tag.container);
+                    listReminderView.remove(tag);
+                }
+            });
+            containerReminder.addView(reminder.container);
+            reminder.remove.setTag(reminder);
+            listReminderView.add(reminder);
+        }
+        if (listReminderView.size() == 5) {
+            addReminderButton.setVisibility(View.GONE);
+        }
+    }
+
+    private void updateInvitees(int flag) {
+        if (flag == 0) {
+            inviteesButton.setVisibility(View.GONE);
+            panelInviteesView.setVisibility(View.VISIBLE);
+        } else {
+            inviteesUser.clear();
+            inviteUserAdapter.notifyDataSetChanged();
+            employeeBuilder = new StringBuilder(username);
+
+            inviteesButton.setVisibility(View.VISIBLE);
+            panelInviteesView.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PLACE_PICKER_REQUEST)
+            if (resultCode == RESULT_OK) {
+                Place place = PlacePicker.getPlace(this, data);
+                if (place.getName().toString().contains("\""))
+                    locationView.setText(place.getAddress());
+                else
+                    locationView.setText(String.format("%s\n%s", place.getName(), place.getAddress()));
+
+            }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        label = labelAdapter.getItem(position).getLabel();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (v == customerIdView && hasFocus)
+            customerIdView.showDropDown();
+        else if (v == inviteesEditText && hasFocus)
+            inviteesEditText.showDropDown();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        inviteesUser.remove(position);
+        inviteUserAdapter.notifyDataSetChanged();
+    }
+
+    private void initCalendar() {
+        calendarId = getIdCalendar();
+    }
+
+    private long getIdCalendar() {
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_CALENDAR, Manifest.permission.WRITE_CALENDAR}, CRMActivity.CALENDAR_CODE);
+            return -1;
+        } else {
+
+            String selection = "((" + Calendars.ACCOUNT_NAME + " = ?) AND ("
+                    + Calendars.ACCOUNT_TYPE + " = ?) AND ("
+                    + Calendars.OWNER_ACCOUNT + " = ?))";
+            String[] selectionArgs = new String[]{CRMActivity.CALENDAR_ACCOUNT, CalendarContract.ACCOUNT_TYPE_LOCAL,
+                    CRMActivity.CALENDAR_ACCOUNT};
+
+            Cursor query = getContentResolver().query(Calendars.CONTENT_URI,
+                    new String[]{Calendars._ID, Calendars.ALLOWED_REMINDERS},
+                    selection, selectionArgs, null);
+            if (query != null && query.moveToFirst()) {
+                long id = query.getLong(0);
+                query.close();
+                return id;
+            } else
+                return createCalendar();
+        }
+    }
+
+
+    private long createCalendar() {
+        ContentValues values = new ContentValues();
+        values.put(Calendars.ACCOUNT_NAME, CRMActivity.CALENDAR_ACCOUNT);
+        values.put(Calendars.ACCOUNT_TYPE, CalendarContract.ACCOUNT_TYPE_LOCAL);
+        values.put(Calendars.NAME, CRMActivity.CALENDAR_NAME);
+        values.put(Calendars.CALENDAR_DISPLAY_NAME, CRMActivity.CALENDAR_NAME);
+        values.put(Calendars.CALENDAR_COLOR, CRMActivity.CALENDAR_COLOR);
+        values.put(Calendars.CALENDAR_ACCESS_LEVEL, Calendars.CAL_ACCESS_OWNER);
+        values.put(Calendars.OWNER_ACCOUNT, CRMActivity.CALENDAR_ACCOUNT);
+        values.put(Calendars.CALENDAR_TIME_ZONE, timeZoneId);
+        values.put(Calendars.SYNC_EVENTS, 1);
+        values.put(Calendars.VISIBLE, 1);
+        values.put(Calendars.ALLOWED_REMINDERS, String.format(Locale.getDefault(), "%d,%d,%d,%d,%d",
+                Reminders.METHOD_ALERT,
+                Reminders.METHOD_ALARM,
+                Reminders.METHOD_EMAIL,
+                Reminders.METHOD_SMS,
+                Reminders.METHOD_DEFAULT));
+        Uri.Builder builder = Calendars.CONTENT_URI.buildUpon();
+        builder.appendQueryParameter(Calendars.ACCOUNT_NAME, CRMActivity.CALENDAR_ACCOUNT);
+        builder.appendQueryParameter(Calendars.ACCOUNT_TYPE, CalendarContract.ACCOUNT_TYPE_LOCAL);
+        builder.appendQueryParameter(CalendarContract.CALLER_IS_SYNCADAPTER, "true");
+        Uri uri = getContentResolver().insert(builder.build(), values);
+        if (uri != null)
+            return Long.parseLong(uri.getLastPathSegment());
+        return -1;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == CRMActivity.CALENDAR_CODE)
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                initCalendar();
+            } else
+                finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    private class Reminder {
+        View container;
+        AppCompatSpinner time, type;
+        ImageView remove;
+    }
+}

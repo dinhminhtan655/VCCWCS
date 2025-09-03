@@ -1,0 +1,51 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_menu"
+        android:title="@string/sort"
+        app:showAsAction="ifRoom">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/action_detail_no"
+                    android:title="@string/product_no" />
+                <item
+                    android:id="@+id/action_detail_name"
+                    android:title="@string/product_name" />
+                <item
+                    android:id="@+id/action_detail_remark"
+                    android:title="@string/remark" />
+                <item
+                    android:id="@+id/action_detail_nxs"
+                    android:title="@string/nxs" />
+                <item
+                    android:id="@+id/action_detail_hsd"
+                    android:title="@string/hsd" />
+                <item
+                    android:id="@+id/action_detail_vi_tri"
+                    android:title="@string/vi_tri" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/action_filter"
+        android:title="@string/tat_ca"
+        app:showAsAction="always">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/action_filter_all"
+                    android:checked="true"
+                    android:title="@string/tat_ca" />
+                <item
+                    android:id="@+id/action_filter_yet_scan"
+                    android:title="@string/not_yet_scan" />
+                <item
+                    android:id="@+id/action_filter_scanned"
+                    android:title="@string/scanned" />
+            </group>
+        </menu>
+    </item>
+
+</menu>

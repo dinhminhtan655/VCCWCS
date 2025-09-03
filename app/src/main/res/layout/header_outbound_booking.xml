@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:text="@string/plt_no"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"/>
+
+    <TextView
+        android:text="@string/sl_chia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"/>
+
+
+    <TextView
+        android:text="@string/sl_move"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"/>
+
+
+    <TextView
+        android:text="@string/ch_nh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"/>
+
+
+    <TextView
+        android:text="@string/confirm_qty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"/>
+
+
+    <TextView
+        android:text="@string/contru"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom"
+        android:gravity="center"/>
+
+</LinearLayout>

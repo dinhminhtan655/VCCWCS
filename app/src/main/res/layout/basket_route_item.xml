@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="@dimen/col8"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvRouteNo"
+            android:text="Tuyến: MSG-4"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:textColor="#005EFF"
+            android:layout_weight="0.3"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvtotalPack"
+            android:text="Tổng số pack: 1"
+            android:textColor="#FF0000"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:layout_weight="0.3"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvtotalBasket"
+            android:text="Tổng số khay rổ: 99"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvtotalBasketNhan"
+            android:text="Tổng số khay rổ nhan: 99"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvtotalCCDC"
+            android:text="CCDC"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvtotalCCDCNhan"
+            android:text="CCDC Nhan"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_weight="0.3"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

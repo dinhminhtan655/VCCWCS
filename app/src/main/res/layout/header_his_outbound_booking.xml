@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:id="@+id/lnRV"
+    android:background="@color/working2"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvHisPlt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            tools:text="1"/>
+
+        <TextView
+            android:id="@+id/tvHisSLChia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            tools:text="3"/>
+
+
+        <TextView
+            android:id="@+id/tvHisSLMove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            tools:text="0"/>
+
+
+        <TextView
+            android:id="@+id/tvHisDC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            tools:text="0"/>
+
+
+        <TextView
+            android:id="@+id/tvHisConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            tools:text="3"/>
+
+
+        <TextView
+            android:id="@+id/tvHisUpDown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            tools:text="0"/>
+
+
+    </LinearLayout>

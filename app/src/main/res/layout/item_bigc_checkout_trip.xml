@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.bigcqa.bigccheckout.BigDock_TripDetails" />
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="@{String.valueOf(item.ProductNumber)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col2"
+            android:layout_height="match_parent"
+            tools:text="00000868"/>
+
+        <TextView
+            android:text="@{String.valueOf(item.ProductName)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col2"
+            android:layout_height="match_parent"
+            tools:text="BAC HA/ DOC MUNG"/>
+
+        <TextView
+            android:text="@{String.valueOf(item.Basket1)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col5"
+            android:layout_height="match_parent"
+            tools:text="0"/>
+
+        <TextView
+            android:text="@{String.valueOf(item.Basket2)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col5"
+            android:layout_height="match_parent"
+            tools:text="0"/>
+
+        <TextView
+            android:text="@{String.valueOf(item.Basket3)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col5"
+            android:layout_height="match_parent"
+            tools:text="0"/>
+
+        <TextView
+            android:text="@{String.valueOf(item.Basket4)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col5"
+            android:layout_height="match_parent"
+            tools:text="0"/>
+
+        <TextView
+            android:text="@{String.valueOf(item.Basket5)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col5"
+            android:layout_height="match_parent"
+            tools:text="0"/>
+
+        <TextView
+            android:text="@{String.valueOf(item.Basket6)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col5"
+            android:layout_height="match_parent"
+            tools:text="0"/>
+
+        <TextView
+            android:text="@{String.valueOf(item.Basket7)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col5"
+            android:layout_height="match_parent"
+            tools:text="0"/>
+        <TextView
+            android:text="@{String.valueOf(item.Basket8)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col1"
+            android:layout_height="match_parent"
+            tools:text="0"/>
+
+        <TextView
+            android:text="@{String.valueOf(item.DispatchedActualWeight)}"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/outline_right_bottom"
+            android:layout_width="@dimen/col1"
+            android:layout_height="match_parent"
+            tools:text="0.00000"/>
+
+    </LinearLayout>
+
+</layout>

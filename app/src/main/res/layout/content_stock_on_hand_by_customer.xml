@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.wcs.vcc.main.tonkho.detailkhachhang.StockOnHandByCustomerActivity"
+    tools:showIn="@layout/activity_stock_on_hand_by_customer">
+
+    <TextView
+        android:id="@+id/tv_stock_on_hand_by_customer_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="#EEE"
+        android:padding="5dp"
+        android:textColor="#A00"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_customerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/tv_stock_on_hand_by_customer_total"
+        android:background="#EEE"
+        android:ellipsize="marquee"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/vLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/tv_customerName"
+        android:background="#000" />
+
+    <LinearLayout
+        android:id="@+id/ll_column_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vLine"
+        android:background="#EEE"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_stock_on_hand_by_customer_productName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="Product Name"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tv_stock_on_hand_by_customer_productID"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="ProductID"
+                android:textAlignment="center"
+                android:textColor="#A00" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center_horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Plt"
+                android:textAlignment="center"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Weight"
+                android:textAlignment="center"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Unit"
+                android:textAlignment="center"
+                android:textColor="#000" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:singleLine="true"
+                android:text="Available"
+                android:textAlignment="center"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Qty"
+                android:textAlignment="center"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:maxLines="1"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:singleLine="true"
+                android:text="Location"
+                android:textAlignment="center"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center_horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Exported"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColor="#000" />
+
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Hold"
+                android:textAlignment="center"
+                android:textColor="#000" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/outline_right_bottom_dark"
+                android:gravity="center_horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Picked"
+                android:textAlignment="center"
+                android:textColor="#000" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvOrderDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_column_name" />
+
+    <View
+        android:id="@+id/view_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@id/ll_column_name"
+        android:background="@drawable/shadow" />
+</RelativeLayout>

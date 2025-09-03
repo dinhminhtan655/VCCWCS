@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.packingscan.pack.Pack" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="42dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.025"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center"
+            android:text="@{item.ProductNumber}"
+            tools:text="Mã" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center_vertical"
+            android:text="@{item.ProductName}"
+            tools:text="Tên" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center"
+            android:text="@{String.valueOf(item.OrderQuantity)}"
+            tools:text="SL" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.075"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center"
+            android:text="@{String.valueOf(item.OrderNetWeight)}"
+            tools:text="99.999" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#A00"
+            android:text="@{String.valueOf(item.Quantity)}"
+            tools:text="Gói" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:background="@drawable/outline_right_bottom_dark"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#00F"
+            android:text="@{String.valueOf(item.NetWeight)}"
+            tools:text="Cân" />
+
+    </LinearLayout>
+</layout>

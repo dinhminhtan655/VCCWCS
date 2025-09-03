@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="Mã hàng" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="Tên hàng" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="SL" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="Kí" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="Ghi chú" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="Thực giao" />
+
+    <CheckBox
+        android:id="@+id/cbAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

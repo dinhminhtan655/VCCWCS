@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.api.xdoc.response.PackingList" />
+
+
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/lnRV"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.Pallet_ID}"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.soBich}"
+            android:textColor="#F44336"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="3" />
+        <TextView
+            android:id="@+id/tvDocEntry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.Doc_Entry}"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/tvSLMove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:backgroundTint="@color/caldroid_holo_blue_dark"
+            android:gravity="center"
+            android:text="DC"
+            android:textColor="#F44336"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="DC" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.SLScan}"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="3" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:text="@{item.SLMove}"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="3" />
+
+
+
+    </LinearLayout>
+
+</layout>
+

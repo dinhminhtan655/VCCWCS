@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="truckDriver"
+            type="com.wcs.vcc.main.capdau.TruckDriver" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/label_distribution_order_truck_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Số xe"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <AutoCompleteTextView
+            android:id="@+id/actv_distribution_order_truck_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:completionThreshold="0"
+            android:hint="Số xe"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_truck_number"
+            app:layout_constraintEnd_toStartOf="@+id/bt_distribution_order_change_driver"
+            app:layout_constraintStart_toEndOf="@id/label_distribution_order_truck_number" />
+
+        <Button
+            android:id="@+id/bt_distribution_order_change_driver"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_margin="0dp"
+            android:enabled="false"
+            android:padding="0dp"
+            android:text="Đổi tài xế"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="@id/actv_distribution_order_truck_number"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_driver_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Tên TX"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/actv_distribution_order_truck_number" />
+
+        <TextView
+            android:id="@+id/tv_distribution_order_driver_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{truckDriver.DriverName}"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_driver_name"
+            app:layout_constraintStart_toStartOf="@id/actv_distribution_order_truck_number"
+            tools:text="DriverName" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_time_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Giờ vào"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_distribution_order_driver_name" />
+
+        <TextView
+            android:id="@+id/tv_distribution_order_time_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="5"
+            android:text="@{truckDriver.TimeIn}"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_time_in"
+            app:layout_constraintStart_toStartOf="@id/tv_distribution_order_driver_name"
+            tools:text="TimeIn" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_km_latest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trước: "
+            android:textColor="#A00"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_distribution_order_kilometer"
+            app:layout_constraintStart_toEndOf="@id/tv_distribution_order_kilometer" />
+
+        <TextView
+            android:id="@+id/tv_distribution_order_km_latest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@{String.valueOf(truckDriver.KilometerLatest)}"
+            android:textColor="#00F"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_km_latest"
+            app:layout_constraintStart_toEndOf="@id/label_distribution_order_km_latest"
+            tools:text="KilometerLatest" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_kilometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Km"
+            android:textColor="#00F"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/label_distribution_order_time_in" />
+
+        <EditText
+            android:id="@+id/tv_distribution_order_kilometer"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:minEms="3"
+            android:selectAllOnFocus="true"
+            android:text="@{String.valueOf(truckDriver.Kilometer)}"
+            android:textColor="#00F"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_kilometer"
+            app:layout_constraintStart_toStartOf="@id/actv_distribution_order_truck_number"
+            tools:text="Kilometer" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_kilometer_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Đã đi: "
+            android:textColor="#A00"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_distribution_order_quantity"
+            app:layout_constraintStart_toEndOf="@id/tv_distribution_order_kilometer"/>
+
+        <TextView
+            android:id="@+id/tv_distribution_order_kilometer_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#00F"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_kilometer_qty"
+            app:layout_constraintStart_toEndOf="@id/label_distribution_order_kilometer_qty"
+            tools:text="KilometerQty" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Lít"
+            android:textColor="#00F"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_distribution_order_kilometer" />
+
+        <EditText
+            android:id="@+id/tv_distribution_order_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:minEms="3"
+            android:selectAllOnFocus="true"
+            android:text="@{String.valueOf(truckDriver.Quantity)}"
+            android:textColor="#00F"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_quantity"
+            app:layout_constraintStart_toStartOf="@id/actv_distribution_order_truck_number"
+            tools:text="Quantity" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_avg_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="T.bình: "
+            android:textColor="#A00"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_pump"
+            app:layout_constraintStart_toStartOf="@id/label_distribution_order_kilometer_qty" />
+
+        <TextView
+            android:id="@+id/tv_distribution_order_avg_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(truckDriver.AVGQty)}"
+            android:textColor="#00F"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_avg_qty"
+            app:layout_constraintStart_toEndOf="@id/label_distribution_order_avg_qty"
+            tools:text="AVGQty" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_pump"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Trụ bơm số"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/label_distribution_order_quantity" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:id="@+id/sp_distribution_order_pump"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/label_distribution_order_pump"
+            android:layout_marginStart="8dp"
+            android:entries="@array/pump"
+            app:layout_constraintStart_toEndOf="@id/label_distribution_order_pump" />
+
+        <TextView
+            android:id="@+id/label_distribution_order_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ghi chú"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/label_distribution_order_pump" />
+
+        <EditText
+            android:id="@+id/tv_distribution_order_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:minEms="10"
+            android:text="@{truckDriver.DistributionRemark}"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_distribution_order_remark"
+            app:layout_constraintStart_toStartOf="@id/actv_distribution_order_truck_number"
+            tools:text="DistributionRemark" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

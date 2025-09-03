@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.scanbhx.model.SealGroup" />
+
+    </data>
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:text="@{item.palletID}"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            tools:text="1"/>
+
+        <TextView
+            android:text="@{item.sealName}"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="#E2C425"
+            android:textStyle="bold"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            tools:text="3"/>
+
+
+        <TextView
+            android:text="@{item.scanDate}"
+            android:id="@+id/tvSLMove"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:textColor="#F44336"
+            android:textStyle="bold"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            tools:text="2020-11-02T20:10:08"/>
+
+
+    </LinearLayout>
+
+</layout>
+

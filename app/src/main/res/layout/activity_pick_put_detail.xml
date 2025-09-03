@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="pallet"
+            type="com.wcs.vcc.main.vo.PalletPickPut"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.scsvn.whc_2016.main.len_ha_hang.PickPutDetailActivity">
+
+        <LinearLayout
+            android:id="@+id/header_pick_put_scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/outline_bottom"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/header_pick_put_filter"
+            tools:ignore="NotSibling">
+
+            <EditText
+                android:id="@+id/et_target_scan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/barcode"
+                android:paddingEnd="0dp"
+                android:paddingStart="10dp"
+                android:textCursorDrawable="@null">
+
+                <requestFocus/>
+            </EditText>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#444"/>
+
+            <TextView
+                android:id="@+id/tv_prev_barcode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingEnd="0dp"
+                android:paddingStart="10dp"
+                android:textSize="17sp"
+                tools:text="PI0000213012301"/>
+
+            <ImageView
+                android:id="@+id/ivCameraScan"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/selector_gray_white"
+                android:scaleType="center"
+                android:src="@drawable/ic_action_image_camera_holo_light"
+                tools:ignore="ContentDescription"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView12"
+            style="@style/AppTheme.BaseText"
+            android:text="@{pallet.CustomerNumber}"
+            android:textSize="17sp"
+            app:layout_constraintStart_toEndOf="@+id/textView21"
+            app:layout_constraintTop_toTopOf="@+id/textView21"
+            tools:text="MET-262"/>
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="KH: "
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/textView23"
+            app:layout_constraintTop_toBottomOf="@+id/textView23"/>
+
+        <TextView
+            android:id="@+id/textView40"
+            style="@style/AppTheme.BaseText"
+            android:text="@{pallet.UserID}"
+            android:textSize="17sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/textView39"
+            app:layout_constraintTop_toTopOf="@+id/textView21"
+            tools:text="---"/>
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="KTK: "
+            android:textSize="17sp"
+            android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView21"
+            app:layout_constraintStart_toStartOf="@+id/textView34"/>
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="NSX: "
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/textView24"
+            app:layout_constraintTop_toBottomOf="@+id/textView15"/>
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Phiếu: "
+            android:textSize="17sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@+id/textView19"/>
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Tên: "
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@+id/textView17"/>
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Mã: "
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/textView28"
+            app:layout_constraintTop_toBottomOf="@+id/textView29"/>
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Thùng: "
+            android:textSize="17sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView25"
+            app:layout_constraintStart_toStartOf="@+id/textView34"/>
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="G.Chú: "
+            android:textSize="17sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/textView22"
+            app:layout_constraintTop_toBottomOf="@+id/textView22"/>
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{pallet.returnResult}"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_plt_qty"
+            app:layout_constraintTop_toBottomOf="@+id/header_pick_put_scan"
+            tools:text="OK"/>
+
+        <TextView
+            android:id="@+id/tv_plt_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{pallet.PltScannedQty}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvResult"
+            app:layout_constraintLeft_toRightOf="@id/tvResult"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="12/123"/>
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:text="PalletId: "
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvResult"/>
+
+        <TextView
+            android:id="@+id/textView18"
+            style="@style/AppTheme.BaseText"
+            android:text="@{String.valueOf(pallet.Cartons)}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView26"
+            app:layout_constraintStart_toEndOf="@+id/textView26"
+            tools:text="3"/>
+
+        <TextView
+            android:id="@+id/textView19"
+            style="@style/AppTheme.BaseText"
+            android:layout_width="0dp"
+            android:layout_marginEnd="4dp"
+            android:text="@{pallet.SpecialRequirement}"
+            android:textSize="17sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView27"
+            app:layout_constraintTop_toTopOf="@+id/textView27"
+            tools:text="51D08680/an phu-/\r\n10-/ Lot No-S10"/>
+
+        <TextView
+            android:id="@+id/textView15"
+            style="@style/AppTheme.BaseText"
+            android:layout_width="0dp"
+            android:layout_marginEnd="4dp"
+            android:text="@{pallet.ProductName}"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView24"
+            app:layout_constraintTop_toTopOf="@+id/textView24"
+            tools:text="KEM BULLA SPLITS (TROPICAL, ORANGE, WILDBERRY) 5X10s"/>
+
+        <TextView
+            android:id="@+id/textView20"
+            style="@style/AppTheme.BaseText"
+            android:text="@{pallet.LocationNumber}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView32"
+            app:layout_constraintStart_toEndOf="@+id/textView32"
+            tools:text="H-19-24-4-1"/>
+
+        <TextView
+            android:id="@+id/textView29"
+            style="@style/AppTheme.BaseText"
+            android:text="@{String.valueOf(pallet.PalletNumber)}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView28"
+            app:layout_constraintStart_toEndOf="@+id/textView28"
+            tools:text="9644709"/>
+
+        <TextView
+            android:id="@+id/textView17"
+            style="@style/AppTheme.BaseText"
+            android:layout_marginStart="4dp"
+            android:text="@{pallet.ProductNumber}"
+            android:textSize="17sp"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toStartOf="@id/textView26"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/textView25"
+            app:layout_constraintTop_toTopOf="@+id/textView25"
+            tools:text="MET-152690METMET-152690MET"/>
+
+        <TextView
+            android:id="@+id/textView14"
+            style="@style/AppTheme.BaseText"
+            android:text="@{pallet.OrderNumber}"
+            android:textSize="17sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/textView23"
+            app:layout_constraintTop_toTopOf="@+id/textView23"
+            tools:text="DO-770742"/>
+
+        <TextView
+            android:id="@+id/textView13"
+            style="@style/AppTheme.BaseText"
+            android:text="@{pallet.OrderDate}"
+            android:textSize="17sp"
+            app:layout_constraintStart_toEndOf="@+id/textView31"
+            app:layout_constraintTop_toTopOf="@+id/textView31"
+            tools:text="01/02/2018"/>
+
+        <TextView
+            android:id="@+id/textView33"
+            style="@style/AppTheme.BaseText"
+            android:text="@{pallet.UseByDate}"
+            android:textSize="17sp"
+            app:layout_constraintStart_toEndOf="@+id/textView34"
+            app:layout_constraintTop_toTopOf="@+id/textView34"
+            tools:text="12/12/2018"/>
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HSD: "
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/textView32"
+            app:layout_constraintTop_toTopOf="@+id/textView30"/>
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày: "
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/textView34"
+            app:layout_constraintTop_toTopOf="@+id/textView14"/>
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text=""
+            android:textSize="17sp"
+            app:layout_constraintStart_toEndOf="@+id/textView29"
+            app:layout_constraintTop_toTopOf="@+id/textView28"
+            tools:text="LO"/>
+
+        <TextView
+            android:id="@+id/textView30"
+            style="@style/AppTheme.BaseText"
+            android:text="@{pallet.ProductionDate}"
+            android:textSize="17sp"
+            app:layout_constraintStart_toEndOf="@+id/textView22"
+            app:layout_constraintTop_toTopOf="@+id/textView22"
+            tools:text="01/01/1999"/>
+
+        <TextView
+            android:id="@+id/textView35"
+            style="@style/AppTheme.BaseText"
+            android:text="@{pallet.ScannedBy}"
+            android:visibility="gone"
+            android:textSize="17sp"
+            app:layout_constraintStart_toEndOf="@+id/textView36"
+            app:layout_constraintTop_toTopOf="@+id/textView36"
+            tools:text="- - - - - -"/>
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            android:text="Scan: "
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/textView21"
+            app:layout_constraintTop_toBottomOf="@+id/textView21"/>
+
+        <TextView
+            android:id="@+id/textView37"
+            style="@style/AppTheme.BaseText"
+            android:text="@{String.valueOf(pallet.Status)}"
+            android:textSize="17sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/textView38"
+            app:layout_constraintTop_toTopOf="@+id/textView38"
+            tools:text="- - - - - -"/>
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Status: "
+            android:textSize="17sp"
+            android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView36"
+            app:layout_constraintStart_toStartOf="@+id/textView31"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/border_black_color_label"
+            android:orientation="horizontal"
+            android:paddingEnd="2dp"
+            android:paddingStart="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView35">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To: "
+                android:textSize="17sp"/>
+
+            <EditText
+                android:id="@+id/et_barcode_location"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ems="7"
+                android:inputType="textCapWords"/>
+
+            <Button
+                android:id="@+id/btn_move"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:onClick="onMove"
+                android:background="#CCC"
+                android:text="Chuyển"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textColor="#0020f1"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout"
+            tools:text="Bạn đã scan giàn kệ '01-00', vui long scan tiếp tầng trên xe!" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn01"
+        android:text="Xác nhận giao rổ"
+        android:background="@color/caldroid_holo_blue_dark"
+        android:textColor="@color/white"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn02"
+        android:text="Xác nhận thu rổ"
+        android:background="@color/caldroid_holo_blue_dark"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

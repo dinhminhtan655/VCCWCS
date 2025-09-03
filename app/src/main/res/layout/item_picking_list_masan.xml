@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wcs.vcc.main.newscanmasan.pickpackshippickinglist.PickingList" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/lnRV"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="@{item.StoreNumber}"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            tools:text="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="@{String.valueOf(item.Quantity)}"
+            android:textColor="#E91E63"
+            android:textSize="45sp"
+            android:textStyle="bold"
+            tools:text="3" />
+
+
+        <TextView
+            android:id="@+id/tvSLMove"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="@{String.valueOf(item.Weights)}"
+            android:textColor="#F44336"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="0" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="@{String.valueOf(item.NetQty)}"
+            android:textColor="#3F51B5"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="0" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="@{String.valueOf(item.Quantity-item.NetQty)}"
+            android:textColor="@color/colorIndigoAccent"
+            android:textSize="45sp"
+            android:textStyle="bold"
+            tools:text="3" />
+
+    </LinearLayout>
+
+
+</layout>
+

@@ -1,0 +1,130 @@
+package com.wcs.vcc.main.phieuhomnay;
+
+import android.content.Context;
+import android.graphics.Color;
+import androidx.core.content.ContextCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.TextView;
+
+import com.wcs.wcs.R;
+import com.wcs.vcc.utilities.Utilities;
+
+import java.text.Normalizer;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Locale;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+
+public class KhachHangAdapter extends ArrayAdapter<InOutToDayUnfinishedInfo> implements Filterable {
+    private LayoutInflater inflater;
+    private ArrayList<InOutToDayUnfinishedInfo> dataOrigin;
+    private ArrayList<InOutToDayUnfinishedInfo> dataRelease;
+
+    public KhachHangAdapter(Context context, ArrayList<InOutToDayUnfinishedInfo> objects) {
+        super(context, 0, objects);
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        dataOrigin = objects;
+        dataRelease = objects;
+    }
+
+    @Override
+    public InOutToDayUnfinishedInfo getItem(int position) {
+        return dataRelease.get(position);
+    }
+
+    @Override
+    public int getCount() {
+        return dataRelease.size();
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final ViewHolder holder;
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.items_khach_hang, parent, false);
+            holder = new ViewHolder(convertView);
+            convertView.setTag(holder);
+        } else holder = (ViewHolder) convertView.getTag();
+        InOutToDayUnfinishedInfo info = dataRelease.get(position);
+        holder.cusName.setText(info.getCustomerName());
+        holder.cusNumber.setText(info.getCustomerNumber());
+        holder.quantity.setText(String.format(Locale.US, "%d", info.getOrderQty()));
+        holder.tvTotalWeight.setText(String.format("W: %s", NumberFormat.getInstance().format(info.getTotalWeight())));
+        holder.tvTotalPackage.setText(String.format(Locale.US, "Ctn: %d", info.getTotalPackages()));
+        Utilities.setUnderLine(holder.tvScannedOrderQty, info.getScannedOrderQty());
+        holder.tvScannedOrderQty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        if (position % 2 == 0)
+            convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAlternativeRow));
+        else convertView.setBackgroundColor(Color.WHITE);
+
+        return convertView;
+    }
+
+    @Override
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults results = new FilterResults();
+                String keyword = constraint.toString().toLowerCase();
+                if (keyword.length() > 0) {
+                    ArrayList<InOutToDayUnfinishedInfo> arrayFilter = new ArrayList<>();
+                    for (int i = 0; i < dataOrigin.size(); i++) {
+                        InOutToDayUnfinishedInfo info = dataOrigin.get(i);
+                        String name = Normalizer.normalize(info.getCustomerName().toLowerCase(), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+                        String nameNoSpace = Normalizer.normalize(info.getCustomerName().toLowerCase(), Normalizer.Form.NFD).replaceAll(" ", "").replaceAll("[^\\p{ASCII}]", "");
+                        String number = Normalizer.normalize(info.getCustomerNumber().toLowerCase(), Normalizer.Form.NFD).replaceAll("-", "");
+                        if (name.contains(keyword) || nameNoSpace.contains(keyword) || number.contains(keyword))
+                            arrayFilter.add(info);
+                    }
+                    results.count = arrayFilter.size();
+                    results.values = arrayFilter;
+                } else {
+                    results.count = dataOrigin.size();
+                    results.values = dataOrigin;
+                }
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                dataRelease = (ArrayList<InOutToDayUnfinishedInfo>) results.values;
+                notifyDataSetChanged();
+            }
+        };
+        return filter;
+    }
+
+    public static class ViewHolder {
+        @BindView(R.id.tv_customerName)
+        TextView cusName;
+        @BindView(R.id.tv_customerNumber)
+        TextView cusNumber;
+        @BindView(R.id.tv_quantity)
+        TextView quantity;
+        @BindView(R.id.tv_ScannedOrderQty)
+        TextView tvScannedOrderQty;
+        @BindView(R.id.tv_total_package)
+        TextView tvTotalWeight;
+        @BindView(R.id.tv_total_weight)
+        TextView tvTotalPackage;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
+    }
+
+}

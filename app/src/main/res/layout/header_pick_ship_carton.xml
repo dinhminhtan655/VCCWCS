@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="42dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_item_pick_ship_carton_carton_number"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:text="Mã thùng" />
+
+    <TextView
+        android:id="@+id/tv_item_pick_ship_carton_total_packages"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:text="Thùng" />
+
+    <TextView
+        android:id="@+id/tv_item_pick_ship_carton_total_weight"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/outline_right_bottom_dark"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:text="Kg" />
+
+</LinearLayout>
+

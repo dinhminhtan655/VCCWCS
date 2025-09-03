@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wcs.vcc.main.QLKhayRo.BasketRouteActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/mAppBar"
+        android:layout_alignParentTop="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mToolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/ivArrowLeft"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/selector_gray_transparent"
+                    android:src="@drawable/ic_hardware_keyboard_arrow_left" />
+
+                <Button
+                    android:id="@+id/btChooseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/selector_gray_transparent"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:textColor="#FFF" />
+
+                <ImageView
+                    android:id="@+id/ivArrowRight"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/selector_gray_transparent"
+                    android:src="@drawable/ic_hardware_keyboard_arrow_right" />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <Spinner
+        android:id="@+id/spinnerCustomerCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mAppBar"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/spinnerBasketName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerCustomerCode"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <LinearLayout
+        android:layout_below="@+id/spinnerBasketName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvRouteNo"
+            android:text="Tuyến"
+            android:textStyle="bold"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:textColor="@color/caldroid_holo_blue_dark"
+            android:layout_weight="0.3"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvtotalPack"
+            android:text="Hàng"
+            android:textStyle="bold"
+            android:textColor="@color/caldroid_holo_blue_dark"
+            android:background="@drawable/outline_right_bottom"
+            android:gravity="center"
+            android:layout_weight="0.3"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvtotalBasket"
+            android:text="Khay rổ giao"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/caldroid_holo_blue_dark"
+            android:background="@drawable/outline_right_bottom"
+            android:textSize="13sp"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvtotalBasketNhan"
+            android:text="Khay rổ nhận"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/caldroid_holo_blue_dark"
+            android:background="@drawable/outline_right_bottom"
+            android:textSize="13sp"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvCDDC"
+            android:text="CCDC giao"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/caldroid_holo_blue_dark"
+            android:background="@drawable/outline_right_bottom"
+            android:textSize="13sp"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvCDDCNhan"
+            android:text="CCDC nhận"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/caldroid_holo_blue_dark"
+            android:background="@drawable/outline_right_bottom"
+            android:textSize="13sp"
+            android:layout_weight="0.3"/>
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBasketRoute"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/contentSum"
+        android:layout_below="@+id/content" />
+
+    <RelativeLayout
+        android:id="@+id/contentSum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@drawable/outline_right_bottom"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Sum"
+                android:textColor="#005EFF"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSumPack"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@drawable/outline_right_bottom"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="0"
+                android:textColor="#FF0000"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSumBasket"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@drawable/outline_right_bottom"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSumBasketNhan"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@drawable/outline_right_bottom"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSumCCDC"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@drawable/outline_right_bottom"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSumCCDCNhan"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@drawable/outline_right_bottom"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

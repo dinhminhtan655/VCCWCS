@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/all_margin_5dp">
+
+    <TextView
+        tools:text="PA2-1"
+        android:id="@+id/tvPalletCode"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+        android:background="@drawable/border_black_color_label"
+        android:padding="@dimen/all_margin_5dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        tools:text="PA2-1"
+        android:id="@+id/tvUsername"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+        android:background="@drawable/border_black_color_label"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+    <TextView
+        tools:text="PA2-1"
+        android:id="@+id/tvAtTime"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+        android:background="@drawable/border_black_color_label"
+        android:textColor="@color/black"
+        android:padding="@dimen/all_margin_5dp"
+        android:gravity="right"/>
+
+
+</LinearLayout>
